@@ -17,7 +17,7 @@ InputManager.prototype.setup = function(){
 
 InputManager.prototype.update = function(){
 
-	if(GUIManager.menuScreen.visible == false){
+	if(GUIManager.menuScreen && GUIManager.menuScreen.visible == false){
 
 		this.handleCursorChange();
 
@@ -154,7 +154,7 @@ InputManager.prototype.update = function(){
 
 InputManager.prototype.handleMouseWheel = function(e){
 
-	if(GUIManager.menuScreen.visible == false){
+	if(GUIManager.menuScreen && GUIManager.menuScreen.visible == false){
 		if( e.wheelDelta < 0 ){
 
 			if(GUIManager.toolbar.selectedSlot == GUIManager.toolbar.slots.length - 1){

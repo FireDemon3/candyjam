@@ -1,7 +1,7 @@
 {
   "name": "candyjam",
   "version": "1.0.0",
-  "description": "Dental Defender: Saga of the Candy Horde ========",
+  "description": "Invasion of the Orcs: Saga of the Orcish Horde ========",
   "main": "index.js",
   "scripts": {
     "start": "http-server ./",

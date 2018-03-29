@@ -7,13 +7,23 @@ MainGame.resources.BootState = {
 	]
 };
 
-console.log("window.location.pathname", window.location.pathname);
+var assetsFolder;
+if (window.location.host.indexOf('127') > -1) {
+	// Normal version
+	assetsFolder = 'assets';
+	console.log("Playing the regular version", window.location.pathname);
+} else {
+	// Addicting version
+	assetsFolder = 'addicting-assets';
+	console.log("Playing the ADDICTING version", window.location.pathname);
+}
 
 MainGame.resources.LoaderState = {
 
 
 	  images: [
-	  	  {name: 'tileset', path: 'assets/images/tileset.png'}
+		{name: 'tileset', path: assetsFolder + '/images/tileset.png'}			
+			
 	  	/*, {name: 'tileset2', path: 'assets/images/tileset2.png'}*/
 	  	, {name: 'bullet', path: 'assets/images/bullet.png'}
 	  	, {name: 'bullet_pink', path: 'assets/images/bullet_pink.png'}

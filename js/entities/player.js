@@ -8,7 +8,7 @@ function Player(game, spawn){
 	this.anchor.setTo(0.5, 0.5);
 	this.body.gravity.y = 0;
 	this.body.collideWorldBounds = true;
-	this.body.setSize(25, 25, 0, 2);
+	// this.body.setSize(25, 25, 0, 2);
 	this.dir = "down";
 
 	this.name = "player";

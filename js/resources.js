@@ -7,7 +7,10 @@ MainGame.resources.BootState = {
 	]
 };
 
+console.log("window.location.pathname", window.location.pathname);
+
 MainGame.resources.LoaderState = {
+
 
 	  images: [
 	  	  {name: 'tileset', path: 'assets/images/tileset.png'}

@@ -35285,7 +35285,8 @@ Phaser.Sound = function (game, key, volume, loop, connect) {
             this.gainNode = this.context.createGain();
         }
 
-        this.gainNode.gain.value = volume * this.game.sound.volume;
+        // MVV fixed console error
+        // this.gainNode.gain.value = volume * this.game.sound.volume;
 
         if (connect)
         {
@@ -35922,7 +35923,8 @@ Object.defineProperty(Phaser.Sound.prototype, "volume", {
         if (this.usingWebAudio)
         {
             this._volume = value;
-            this.gainNode.gain.value = value;
+            // MVV fixed console error
+            // this.gainNode.gain.value = value;
         }
         else if (this.usingAudioTag && this._sound)
         {
@@ -36115,7 +36117,9 @@ Phaser.SoundManager.prototype = {
                 this.masterGain = this.context.createGain();
             }
 
-            this.masterGain.gain.value = 1;
+            // MVV fixed console error
+            // this.masterGain.gain.value = 1;
+
             this.masterGain.connect(this.context.destination);
         }
 
@@ -36215,7 +36219,8 @@ Phaser.SoundManager.prototype = {
 
         var soundData = this.game.cache.getSoundData(key);
 
-        if (soundData)
+        // MVV fixed JS error
+        if (soundData && soundData.byteLength)
         {
             if (this.game.cache.isSoundDecoded(key) === false)
             {

@@ -4,7 +4,7 @@
   "description": "Dental Defender: Saga of the Candy Horde ========",
   "main": "index.js",
   "scripts": {
-    "start": "node http-server ./",
+    "start": "http-server ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,8 +17,7 @@
     "url": "https://github.com/FireDemon3/candyjam/issues"
   },
   "homepage": "https://github.com/FireDemon3/candyjam#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "http-server": "^0.11.1"
   }

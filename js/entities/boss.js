@@ -1,21 +1,21 @@
 
-function boss(game, spawn){
+function Boss(game, spawn){
 	
 	this.game = game;
 	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 200;
-	this.maxHealth = 200;
-	this.speed = 30;
+	this.health = 80;
+	this.maxHealth = 80;
+	this.speed = 70;
 
-	this.healthBar = this.game.add.sprite(this.x, this.y + 20, 'turret_health_bar');
+	this.animations.add('left', [0,1,2,3], 5, true);
+	this.animations.add('right', [4,5,6,7], 5, true);
+
+	this.animations.play('right');
+
+	this.healthBar = this.game.add.sprite(this.x, this.y + 40, 'turret_health_bar');
 	this.healthBar.anchor.setTo(0.5, 0.5);
-
-	this.animations.add('right', [0, 1, 2, 3], 7, true);
-	this.animations.add('left', [4, 5, 6, 7], 7, true);
-
-	this.animations.play('left');
 
 	this.STATES = {
 		  TRACKING: 0
@@ -27,25 +27,28 @@ function boss(game, spawn){
 	this._state = this.STATES.TRACKING;
 
 	this.damageTimer = 0;
+	this.attackTimer = Date.now();
 
 	CollisionManager.addObjectToGroup(this, 'baddies');
 	this.game.add.existing(this);
 }
 
-boss.prototype = Object.create( Phaser.Sprite.prototype );
-boss.prototype.constructor = boss;
+Boss.prototype = Object.create( Phaser.Sprite.prototype );
+Boss.prototype.constructor = Boss;
 
-boss.prototype.update = function(){
+Boss.prototype.update = function(){
 
 	this.updateHealthBar();
 
 	if(this._state == this.STATES.TRACKING){
-
 		if(this.target){
-			if(this.withinDetonationRange(this.target)){
-				//blowup
+			if(this.withinShootingRange(this.target)){
+				this.attack(this.target);
 			}
-	
+			
+			if(this.withinFollowingRange(this.target) || this.target.name == "tooth"){ 
+				this.moveTowards(this.target);
+			}
 			else{
 				this.target = CollisionManager.groups.teeth[0];
 			}
@@ -55,19 +58,26 @@ boss.prototype.update = function(){
 		}
 	}
 	else if(this._state == this.STATES.DAMAGED){
-
-		this.body.velocity.x = 0;
-		this.body.velocity.y = 0;
-
+		this.body.veloctiy = {x:0, y:0};
 		this.damageTimer--;
 		if(this.damageTimer <= 0){
 			this._state = this.STATES.TRACKING;
 		}
 	}
+
 }
 
-boss.prototype.withinFollowingRange = function(target){
+Boss.prototype.withinShootingRange = function(target){
+	var dist = Math.abs(Math.sqrt((target.x - this.x)*(target.x - this.x)+(target.y - this.y)*(target.x - this.y)));
 
+	if(dist < 400){
+		return true;
+	}
+
+	return false;
+}
+
+Boss.prototype.withinFollowingRange = function(target){
 	var dist = Math.abs(Math.sqrt((target.x - this.x)*(target.x - this.x)+(target.y - this.y)*(target.x - this.y)));
 
 	if(dist < 600){
@@ -77,11 +87,7 @@ boss.prototype.withinFollowingRange = function(target){
 	return false;
 }
 
-boss.prototype.withinDetonationRange = function(){
-	return false;
-}
-
-boss.prototype.moveTowards = function(target){
+Boss.prototype.moveTowards = function(target){
 
 	var x = target.x - this.x;
 	var y = target.y - this.y;
@@ -95,14 +101,31 @@ boss.prototype.moveTowards = function(target){
 	this.body.velocity.y = ny * this.speed;
 
 	if(this.body.velocity.x >= 0){
-		this.animations.play('left');
-	}
-	else{
 		this.animations.play('right');
+	}
+	else if(this.body.velocity.x < 0){
+		this.animations.play('left')
 	}
 }
 
-boss.prototype._damage = function(amount, attacker){
+Boss.prototype.attack = function(target){
+
+	if(Date.now() < this.attackTimer){
+		return;
+	}
+
+	this.game.player_shoot_sfx.play();
+
+	var x = target.x - this.x;
+	var y = target.y - this.y;
+	var mag = Math.sqrt((x * x) + (y * y));
+	var nx = x / mag;
+	var ny = y / mag;
+	var b = new Bullet(this.game, {x:this.x, y: this.y}, 'enemy', {x: nx, y: ny}, this);
+	this.attackTimer = Date.now() +  1 * 1000;
+}
+
+Boss.prototype._damage = function(amount, attacker){
 
 	this.target = attacker;
 
@@ -117,17 +140,17 @@ boss.prototype._damage = function(amount, attacker){
 	}
 }
 
-boss.prototype.updateHealthBar = function(){
+Boss.prototype.updateHealthBar = function(){
 
 	this.healthBar.x = this.x;
-	this.healthBar.y = this.y + 24;
+	this.healthBar.y = this.y + 40;
 
 	var p = (this.health / this.maxHealth);
 	p = parseFloat(p.toFixed(1));
 	this.healthBar.frame = 10 - (p * 10);
 }
 
-boss.prototype.die = function(points){
+Boss.prototype.die = function(points){
 
 	if(this.game){
 		this.game.baddie_die_sfx.play();
@@ -135,12 +158,12 @@ boss.prototype.die = function(points){
 
 	var points = points || false;
 
-	var e = game.add.emitter(this.x, this.y, 12);
-	e.makeParticles('corn_die', [0,1,2]);
+	var e = game.add.emitter(this.x, this.y, 16);
+	e.makeParticles('boss_die', [0,1]);
 	//e.gravity = 0;
 	e.minRotation = 0;
 	e.maxRotation = 0;
-	e.start(true, 600, null, 12);
+	e.start(true, 400, null, 16);
 
 	CollisionManager.removeObjectFromGroup(this, "baddies");
 	if(this.healthBar){
@@ -150,6 +173,5 @@ boss.prototype.die = function(points){
 	if(points){
 		InventoryManager.points += MainGame.points.kill_boss;
 	}
-
 	this.destroy();
 }

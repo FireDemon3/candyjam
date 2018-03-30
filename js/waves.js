@@ -1,7 +1,8 @@
 
 	//, kill_corn: 40 corn - 40
-	//, kill_cane: 50 gumball - 50
+	//, kill_cane: 80 gumball - 80
 	//, kill_bear: 30 mint - 30
+  //, kill_boss: 500 mint - 500
 
 MainGame.waves = [
 	{

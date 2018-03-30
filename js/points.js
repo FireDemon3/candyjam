@@ -9,4 +9,5 @@ MainGame.points = {
 	, kill_corn: 70  //corn
 	, kill_cane: 80 //gumball
 	, kill_bear: 50 //mint
+	, kill_boss: 500 //boss
 };

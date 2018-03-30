@@ -68,6 +68,9 @@ WaveManager.prototype.update = function(){
 			if(wave.bear > 0)
 				baddies.push('bear');
 
+			if(wave.corn > 0)
+				baddies.push('boss');
+
 			if( baddies.length == 0 && CollisionManager.groups.baddies.length == 0){
 
 				if(this.pauseTime == 0){
@@ -116,6 +119,10 @@ WaveManager.prototype.update = function(){
 					case 'bear':
 						var b = new Bear(this.game, this.getSpawn());
 						this.waves[this.currentWave].bear--;
+						break;
+					case 'boss':
+						var b = new boss(this.game, this.getSpawn());
+						this.waves[this.currentWave].boss--;
 						break;
 				}
 			}

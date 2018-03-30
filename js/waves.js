@@ -5,7 +5,7 @@
 
 MainGame.waves = [
 	{
-			corn: 1
+			corn: 0
 		,	boss: 1
 		, cane: 0
 		, bear: 0

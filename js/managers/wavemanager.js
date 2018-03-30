@@ -68,7 +68,7 @@ WaveManager.prototype.update = function(){
 			if(wave.bear > 0)
 				baddies.push('bear');
 
-			if(wave.corn > 0)
+			if(wave.boss > 0)
 				baddies.push('boss');
 
 			if( baddies.length == 0 && CollisionManager.groups.baddies.length == 0){

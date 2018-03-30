@@ -1,8 +1,7 @@
 
 	//, kill_corn: 40 corn - 40
-	//, kill_cane: 80 gumball - 80
+	//, kill_cane: 50 gumball - 50
 	//, kill_bear: 30 mint - 30
-  //, kill_boss: 500 mint - 500
 
 MainGame.waves = [
 	{
@@ -13,61 +12,71 @@ MainGame.waves = [
 		, moment: 1 	//400 points
 	}
 	,{
-		  corn: 6
+			corn: 6
+		, boss: 0
 		, cane: 4
 		, bear: 0
 		, moment: 2 	//440 points
 	}
 	, {
-		  corn: 5
+			corn: 5
+		, boss: 0
 		, cane: 5
 		, bear: 15
 		, moment: 2 	//900 points
 	}
 	, {
-		  corn: 3
+			corn: 3
+		, boss: 0
 		, cane: 10
 		, bear: 7
 		, moment: 2 	//830 points
 	}
 	, {
-		  corn: 10
+			corn: 10
+		, boss: 0
 		, cane: 10
 		, bear: 10
 		, moment: 2 	//1200 points
 	}
 	, {
-		  corn: 10
+			corn: 10
+		, boss: 0
 		, cane: 10
 		, bear: 10
 		, moment: 3 	//1200 points
 	}
 	, {
-		  corn: 20
+			corn: 20
+		, boss: 0
+		, cane: 20
+		, bear: 20
+		, moment: 4
+	}
+	, {
+			corn: 10
+		, boss: 0
 		, cane: 20
 		, bear: 20
 		, moment: 4
 	}
 	, {
 		  corn: 10
-		, cane: 20
-		, bear: 20
-		, moment: 4
-	}
-	, {
-		  corn: 10
+		, boss: 0
 		, cane: 10
 		, bear: 40
 		, moment: 5
 	}
 	, {
-		  corn: 40
+			corn: 40
+		, boss: 0
 		, cane: 40
 		, bear: 40
 		, moment: 6
 	}
 	, {
-		  corn: 40
+			corn: 40
+		, boss: 0
 		, cane: 40
 		, bear: 40
 		, moment: 7

@@ -122,7 +122,7 @@ Boss.prototype.attack = function(target){
 	var nx = x / mag;
 	var ny = y / mag;
 	var b = new Bullet(this.game, {x:this.x, y: this.y}, 'enemy', {x: nx, y: ny}, this);
-	this.attackTimer = Date.now() +  1 * 100;
+	this.attackTimer = Date.now() +  1 * 1000;
 }
 
 Boss.prototype._damage = function(amount, attacker){

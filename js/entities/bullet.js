@@ -14,7 +14,7 @@ function Bullet(game, spawn, type, dir, parent){
 	this._parent = parent;
 
 	this.speed = 550;
-	this.life = 75;
+	this.life = 200;
 	this._type = type;
 
 	this.body.velocity.x = dir.x * this.speed;

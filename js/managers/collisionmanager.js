@@ -156,7 +156,7 @@ CollisionManager.prototype.update = function(){
 			var turret = this.groups.turrets[k];
 			this.game.physics.collide(baddie, turret, function(){
 				if(baddie.name == "mint"){
-					turret.damage(10);
+					turret.damage(30);
 					baddie.die();
 				}
 				else if(baddie.name == "corn"){

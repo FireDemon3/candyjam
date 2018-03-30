@@ -5,9 +5,9 @@ function Boss(game, spawn){
 	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 80;
-	this.maxHealth = 80;
-	this.speed = 70;
+	this.health = 180;
+	this.maxHealth = 180;
+	this.speed = 40;
 
 	this.animations.add('left', [0,1,2,3], 5, true);
 	this.animations.add('right', [4,5,6,7], 5, true);
@@ -122,7 +122,7 @@ Boss.prototype.attack = function(target){
 	var nx = x / mag;
 	var ny = y / mag;
 	var b = new Bullet(this.game, {x:this.x, y: this.y}, 'enemy', {x: nx, y: ny}, this);
-	this.attackTimer = Date.now() +  1 * 1000;
+	this.attackTimer = Date.now() +  1 * 300;
 }
 
 Boss.prototype._damage = function(amount, attacker){

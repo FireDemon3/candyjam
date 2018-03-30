@@ -121,7 +121,7 @@ WaveManager.prototype.update = function(){
 						this.waves[this.currentWave].bear--;
 						break;
 					case 'boss':
-						var b = new boss(this.game, this.getSpawn());
+						var b = new Boss(this.game, this.getSpawn());
 						this.waves[this.currentWave].boss--;
 						break;
 				}

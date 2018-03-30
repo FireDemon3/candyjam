@@ -2,7 +2,7 @@
 function Cane(game, spawn){
 	
 	this.game = game;
-	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'test_player');
+	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'gumball');
 
 	this.anchor.setTo(0.5, 0.5);
 	this.health = 80;

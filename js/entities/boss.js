@@ -2,11 +2,11 @@
 function Boss(game, spawn){
 	
 	this.game = game;
-	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'gumball1');
+	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 600;
-	this.maxHealth = 600;
+	this.health = 300;
+	this.maxHealth = 300;
 	this.speed = 90;
 
 	this.animations.add('left', [0,1,2,3], 5, true);

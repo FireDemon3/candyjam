@@ -70,8 +70,8 @@ MainGame.resources.LoaderState = {
 		, {name: 'gumball', path: assetsFolder + '/spritesheets/gumball.png', width: 44, height: 44}
 		, {name: 'gumball_die', path: assetsFolder + '/spritesheets/gumball_die.png', width: 4, height: 4}
 
-		, {name: 'boss', path: assetsFolder + '/spritesheets/gumball1.png', width: 44, height: 44}
-		, {name: 'boss_die', path: assetsFolder + '/spritesheets/gumball_die.png', width: 4, height: 4}
+		, {name: 'boss', path: assetsFolder + '/spritesheets/boss.png', width: 44, height: 44}
+		, {name: 'boss_die', path: assetsFolder + '/spritesheets/boss_die.png', width: 4, height: 4}
 
 		, {name: 'turret_small', path: assetsFolder + '/spritesheets/turret_small.png', width: 32, height: 32}
 		, {name: 'turret_big', path: assetsFolder + '/spritesheets/turret_big.png', width: 64, height: 64}

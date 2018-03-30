@@ -155,22 +155,22 @@ InputManager.prototype.update = function(){
 InputManager.prototype.handleMouseWheel = function(e){
 
 	if(GUIManager.menuScreen && GUIManager.menuScreen.visible == false){
-		if( e.wheelDelta < 0 ){
-
-			if(GUIManager.toolbar.selectedSlot == GUIManager.toolbar.slots.length - 1){
-				GUIManager.toolbar.selectSlot(0);
+		if (GUIManager.toolbar && GUIManager.toolbar.slots) {
+			if( e.wheelDelta < 0 ) {
+				if(GUIManager.toolbar.selectedSlot == GUIManager.toolbar.slots.length - 1){
+					GUIManager.toolbar.selectSlot(0);
+				}
+				else{
+					GUIManager.toolbar.selectSlot( GUIManager.toolbar.selectedSlot + 1 );
+				}
 			}
-			else{
-				GUIManager.toolbar.selectSlot( GUIManager.toolbar.selectedSlot + 1 );
-			}
-		}
-		else if( e.wheelDelta > 0 ){
-			
-			if(GUIManager.toolbar.selectedSlot == 0){
-				GUIManager.toolbar.selectSlot(3);
-			}
-			else{
-				GUIManager.toolbar.selectSlot( GUIManager.toolbar.selectedSlot - 1 );
+			else if( e.wheelDelta > 0 ){
+				if(GUIManager.toolbar.selectedSlot == 0){
+					GUIManager.toolbar.selectSlot(GUIManager.toolbar.slots.length - 1); // was 3
+				}
+				else{
+					GUIManager.toolbar.selectSlot( GUIManager.toolbar.selectedSlot - 1 );
+				}
 			}
 		}
 	}

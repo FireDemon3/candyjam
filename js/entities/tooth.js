@@ -8,8 +8,8 @@ function Tooth(game, spawn){
 	this.anchor.setTo(0.5, 0.5);
 	this.body.immovable = true;
 
-	this.health = 500;
-	this.maxHealth = 500;
+	this.health = 400;
+	this.maxHealth = 400;
 
 	this.healthBar = this.game.add.sprite(this.x, this.y + 40, 'player_health');
 	this.healthBar.anchor.setTo(0.5, 0.5);

@@ -5,8 +5,8 @@ function Boss(game, spawn){
 	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 180;
-	this.maxHealth = 180;
+	this.health = 500;
+	this.maxHealth = 500;
 	this.speed = 40;
 
 	this.animations.add('left', [0,1,2,3], 5, true);
@@ -70,7 +70,7 @@ Boss.prototype.update = function(){
 Boss.prototype.withinShootingRange = function(target){
 	var dist = Math.abs(Math.sqrt((target.x - this.x)*(target.x - this.x)+(target.y - this.y)*(target.x - this.y)));
 
-	if(dist < 400){
+	if(dist < 1000){
 		return true;
 	}
 
@@ -80,7 +80,7 @@ Boss.prototype.withinShootingRange = function(target){
 Boss.prototype.withinFollowingRange = function(target){
 	var dist = Math.abs(Math.sqrt((target.x - this.x)*(target.x - this.x)+(target.y - this.y)*(target.x - this.y)));
 
-	if(dist < 600){
+	if(dist < 1000){
 		return true;
 	}
 
@@ -159,11 +159,11 @@ Boss.prototype.die = function(points){
 	var points = points || false;
 	
     // TODO: Crank up the emitter particles when boss dies!!!!!!!
-	var e = game.add.emitter(this.x, this.y, 16);
+	var e = game.add.emitter(this.x, this.y, 200);
 	e.makeParticles('boss_die', [0,1]);
 	//e.gravity = 0;
 	e.minRotation = 0;
-	e.maxRotation = 0;
+	e.maxRotation = 5;
 	e.start(true, 400, null, 16);
 
 	CollisionManager.removeObjectFromGroup(this, "baddies");

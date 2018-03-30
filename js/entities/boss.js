@@ -157,7 +157,8 @@ Boss.prototype.die = function(points){
 	}
 
 	var points = points || false;
-
+	
+    // TODO: Crank up the emitter particles when boss dies!!!!!!!
 	var e = game.add.emitter(this.x, this.y, 16);
 	e.makeParticles('boss_die', [0,1]);
 	//e.gravity = 0;

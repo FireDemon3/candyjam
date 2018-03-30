@@ -70,6 +70,9 @@ MainGame.resources.LoaderState = {
 		, {name: 'gumball', path: assetsFolder + '/spritesheets/gumball.png', width: 44, height: 44}
 		, {name: 'gumball_die', path: assetsFolder + '/spritesheets/gumball_die.png', width: 4, height: 4}
 
+		, {name: 'boss', path: assetsFolder + '/spritesheets/gumball1.png', width: 44, height: 44}
+		, {name: 'boss_die', path: assetsFolder + '/spritesheets/gumball_die.png', width: 4, height: 4}
+
 		, {name: 'turret_small', path: assetsFolder + '/spritesheets/turret_small.png', width: 32, height: 32}
 		, {name: 'turret_big', path: assetsFolder + '/spritesheets/turret_big.png', width: 64, height: 64}
 		, {name: 'turret_progress', path: assetsFolder + '/spritesheets/turret_progress.png', width: 9, height: 9}
@@ -91,7 +94,7 @@ MainGame.resources.LoaderState = {
 		, {name: 'baddie_die_sfx', path: assetsFolder + '/audio/baddie_die.wav'}
 		, {name: 'player_hurt_sfx', path: assetsFolder + '/audio/player_hurt.wav'}
 		/*, {name: 'menu_music', path: assetsFolder + '/audio/spiff_tune_to_the_moon.mp3'}*/
-		, {name: 'game_music', path: assetsFolder + '/audio/spiff_tune_hazard.mp3'}
+		, {name: 'game_music', path: assetsFolder + '/audio/run_music.mp3'}
 	]
 };
 

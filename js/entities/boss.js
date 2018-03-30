@@ -2,7 +2,7 @@
 function Boss(game, spawn){
 	
 	this.game = game;
-	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'gumball');
+	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'gumball1');
 
 	this.anchor.setTo(0.5, 0.5);
 	this.health = 600;

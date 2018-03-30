@@ -2,12 +2,12 @@
 function Boss(game, spawn){
 	
 	this.game = game;
-	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
+	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'gumball');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 500;
-	this.maxHealth = 500;
-	this.speed = 40;
+	this.health = 600;
+	this.maxHealth = 600;
+	this.speed = 90;
 
 	this.animations.add('left', [0,1,2,3], 5, true);
 	this.animations.add('right', [4,5,6,7], 5, true);
@@ -122,7 +122,7 @@ Boss.prototype.attack = function(target){
 	var nx = x / mag;
 	var ny = y / mag;
 	var b = new Bullet(this.game, {x:this.x, y: this.y}, 'enemy', {x: nx, y: ny}, this);
-	this.attackTimer = Date.now() +  1 * 300;
+	this.attackTimer = Date.now() +  1 * 100;
 }
 
 Boss.prototype._damage = function(amount, attacker){

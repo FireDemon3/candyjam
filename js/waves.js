@@ -56,13 +56,13 @@ MainGame.waves = [
 		  corn: 10
 		, cane: 10
 		, bear: 40
-		, moment: 4
+		, moment: 5
 	}
 	, {
 		  corn: 40
 		, cane: 40
 		, bear: 40
-		, moment: 5
+		, moment: 6
 	}
 	, {
 		  corn: 40

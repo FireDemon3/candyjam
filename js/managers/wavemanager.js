@@ -89,7 +89,11 @@ WaveManager.prototype.update = function(){
 					else{
 						this._state = this.states.PAUSED;
 						this.waveLength = Date.now() - this.waveStart;
-						this.accuracy = Math.floor((this.enemyHits / this.shotsFired) * 100);
+						if (this.shotsFired > 0) {
+							this.accuracy = Math.floor((this.enemyHits / this.shotsFired) * 100);
+						} else {
+							this.accuracy = 100; // no shots == perfect accuracy. yay!
+						}
 						GUIManager.handleWaveEnd();
 
 						this.pauseTime = 0;

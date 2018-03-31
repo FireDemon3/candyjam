@@ -2,14 +2,14 @@
 MainGame.resources = {};
 
 var assetsFolder;
-if (window.location.host.indexOf('127') > -1) {
-	// Normal version
-	assetsFolder = 'assets';
-	console.log("Playing the regular version", window.location.pathname);
-} else {
+if (MainGame.addictingMode) {
 	// Addicting version
 	assetsFolder = 'addicting-assets';
 	console.log("Playing the ADDICTING version", window.location.pathname);
+} else {
+	// Normal version
+	assetsFolder = 'assets';
+	console.log("Playing the regular version", window.location.pathname);	
 }
 
 MainGame.resources.BootState = {

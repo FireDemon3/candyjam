@@ -5,11 +5,11 @@
 
 MainGame.waves = [
 	{
-			corn: 1
+			corn: 25
 		,	boss: 1
-		, cane: 1
-		, bear: 1
-		, moment: 1 	//400 points
+		, cane: 10
+		, bear: 8
+		, moment: 5 	//400 points
 	}
 	,{
 			corn: 6

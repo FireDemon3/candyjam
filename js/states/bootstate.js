@@ -1,5 +1,11 @@
 
-var MainGame = {};
+var MainGame = {
+	addictingMode: true
+};
+
+if (window.location.host.indexOf('127') > -1) {
+	MainGame.addictingMode = false;
+}
 
 MainGame.BootState = function(game){
 	

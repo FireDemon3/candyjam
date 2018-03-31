@@ -28,7 +28,9 @@ GUIManager.prototype.handleWaveEnd = function(){
 }
 
 GUIManager.prototype.destroy = function(){
-	this.toolbar.destroy();
+	if (this.toolbar && typeof this.toolbar.destroy == 'function') {
+		this.toolbar.destroy();
+	}
 	this.hud.destroy();
 	
 	this.toolbar = { update: function(){} }

@@ -5,10 +5,10 @@ function Boss(game, spawn){
 	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 300;
-	this.maxHealth = 300;
+	this.health = 600;
+	this.maxHealth = 600;
 	this.speed = 90;
-
+console.log('hay!');
 	this.animations.add('left', [0,1,2,3], 5, true);
 	this.animations.add('right', [4,5,6,7], 5, true);
 

@@ -35,9 +35,11 @@ MainGame.GameState.prototype = {
 		this.game.turret_small_sfx.volume = .05;
 		this.game.turret_big_sfx = this.game.add.audio('turret_big_sfx');
 		this.game.player_shoot_sfx = this.game.add.audio('player_shoot_sfx');
-		this.game.player_shoot_sfx.volume = .2;
+		this.game.player_shoot_sfx.volume = .1;
 		this.game.baddie_die_sfx = this.game.add.audio('baddie_die_sfx');
 		this.game.baddie_die_sfx.volume = .1;
+		this.game.baddie_boss_die_sfx = this.game.add.audio('baddie_boss_die_sfx');
+		this.game.baddie_boss_die_sfx.volume = .6;
 		this.game.player_hurt_sfx = this.game.add.audio('player_hurt_sfx');
 		this.game.player_hurt_sfx.volume = .4;
 

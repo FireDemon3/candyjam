@@ -5,10 +5,10 @@ function Boss(game, spawn){
 	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 600;
+	this.health = 60; // 600;
 	this.maxHealth = 600;
 	this.speed = 90;
-console.log('hay!');
+	console.log('hay!');
 	this.animations.add('left', [0,1,2,3], 5, true);
 	this.animations.add('right', [4,5,6,7], 5, true);
 
@@ -153,18 +153,18 @@ Boss.prototype.updateHealthBar = function(){
 Boss.prototype.die = function(points){
 
 	if(this.game){
-		this.game.baddie_die_sfx.play();
+		this.game.baddie_boss_die_sfx.play();
 	}
 
 	var points = points || false;
 	
-    // TODO: Crank up the emitter particles when boss dies!!!!!!!
+    // Crank up the emitter particles when boss dies!!!!!!!
 	var e = game.add.emitter(this.x, this.y, 200);
-	e.makeParticles('boss_die', [0,1]);
-	//e.gravity = 0;
+	e.makeParticles('boss_die', [0,1,2,3,4]);
+	// 	e.gravity = 0;
 	e.minRotation = 0;
-	e.maxRotation = 5;
-	e.start(true, 400, null, 16);
+	e.maxRotation = 45;
+	e.start(true, 4000, null, 400);
 
 	CollisionManager.removeObjectFromGroup(this, "baddies");
 	if(this.healthBar){

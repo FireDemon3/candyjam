@@ -30,7 +30,7 @@ MainGame.GameOverState.prototype = {
 			// TODO: update this to point to the OTHER version of the game!
 			if (MainGame.addictingMode) {
 				window.location.href = "http://127.0.0.1:8080/";
-			} else {
+			} else {                                                         
 				window.location.href = "http://192.168.2.157:8080/";
 			}
 		}, this, 1, 0, 0);

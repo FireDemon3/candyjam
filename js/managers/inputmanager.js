@@ -223,8 +223,8 @@ InputManager.prototype.emptyTile = function(pos){
 
 InputManager.prototype.handleCursorChange = function(){
 
-	console.log("GUIManager.toolbar.selectedSlot", GUIManager.toolbar.selectedSlot);
-	
+	// console.log("GUIManager.toolbar.selectedSlot", GUIManager.toolbar.selectedSlot);
+
 	var item = InventoryManager.inventory[GUIManager.toolbar.selectedSlot].name;
 	var amount = InventoryManager.inventory[GUIManager.toolbar.selectedSlot].amount;
 

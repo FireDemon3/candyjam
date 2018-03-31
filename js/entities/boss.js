@@ -175,14 +175,29 @@ Boss.prototype.die = function(points){
 		InventoryManager.points += MainGame.points.kill_boss;
 	}
 	
-	var self = this;
-	// setTimeout(function() {
+	for( var i = 0; i < CollisionManager.groups.baddies.length; i++){
+		var baddie = CollisionManager.groups.baddies[i];
+		//console.log(baddie.name);
+		// baddie.die();
+		if(baddie.name != "boss") {
+			baddie.die();
+		}
+	}	
+
+	//var self = this;
+	setTimeout(function() {
 			//self.destroy();
+			// GUIManager.destroy();
+			// WaveManager.destroy();
+			// self.game.state.start('GameOver');	
+
 			GUIManager.destroy();
 			WaveManager.destroy();
-			self.game.state.states['GameOver'].win = true;
-			self.game.state.start('GameOver');	
-		// }, 3000);
+			this.game.state.states['GameOver'].win = true;
+			this.game.state.start('GameOver');	
 
-	//this.destroy();		
+	}, 3000);
+
+	
+	this.destroy();		
 }

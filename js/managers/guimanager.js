@@ -31,7 +31,9 @@ GUIManager.prototype.destroy = function(){
 	if (this.toolbar && typeof this.toolbar.destroy == 'function') {
 		this.toolbar.destroy();
 	}
-	this.hud.destroy();
+	if (this.hud && typeof this.toolbar.hud == 'function') {
+		this.hud.destroy();
+	}
 	
 	this.toolbar = { update: function(){} }
 	this.hud = { update: function(){} }

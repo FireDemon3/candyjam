@@ -174,5 +174,15 @@ Boss.prototype.die = function(points){
 	if(points){
 		InventoryManager.points += MainGame.points.kill_boss;
 	}
-	this.destroy();
+	
+	var self = this;
+	// setTimeout(function() {
+			//self.destroy();
+			GUIManager.destroy();
+			WaveManager.destroy();
+			self.game.state.states['GameOver'].win = true;
+			self.game.state.start('GameOver');	
+		// }, 3000);
+
+	//this.destroy();		
 }

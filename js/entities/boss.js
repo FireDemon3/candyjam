@@ -196,7 +196,7 @@ Boss.prototype.die = function(points){
 			this.game.state.states['GameOver'].win = true;
 			this.game.state.start('GameOver');	
 
-	}, 3000);
+	}, 5000);
 
 	
 	this.destroy();		

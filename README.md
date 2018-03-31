@@ -1,18 +1,14 @@
-Dental Defender: Saga of the Candy Horde
+# Invasion of the Orcs: Saga of the Orcish Horde
 ========
 
-An html5 shooter/tower defense game for the #candyjam
+An html5 shooter/tower defense game.
+
+The game includes two variations, to demonstrate how video games can be made more addicting by adding certain features.
 
 
-Placed #5 overall (out of ~450 games).
+## Created as a fork of:
 
-Jam entry page [here](http://cas002.itch.io/dental-defenders-saga-of-the-candy-horde).
-
-
-Mentioned in an article on Wired [here](http://www.wired.com/underwire/2014/02/candy-crush/).
-
-
-
+Dental Defender: Saga of the Candy Horde
 Copyright (c) 2014 Cody Shepp
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

@@ -91,7 +91,7 @@ MainGame.resources.LoaderState = {
 		  {name: 'turret_small_sfx', path: assetsFolder + '/audio/turret_small.wav'}
 		, {name: 'turret_big_sfx', path: assetsFolder + '/audio/turret_big.wav'}
 		, {name: 'player_shoot_sfx', path: assetsFolder + '/audio/shoot.wav'}
-		, {name: 'baddie_die_sfx', path: assetsFolder + '/audio/baddie_die.wav'}
+		, {name: 'baddie_die_sfx', path: assetsFolder + '/audio/baddie_die_sfx.wav'}
 		, {name: 'player_hurt_sfx', path: assetsFolder + '/audio/player_hurt.wav'}
 		/*, {name: 'menu_music', path: assetsFolder + '/audio/spiff_tune_to_the_moon.mp3'}*/
 		, {name: 'game_music', path: assetsFolder + '/audio/run_music.mp3'}

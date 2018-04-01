@@ -11,19 +11,19 @@ MainGame.waves = [];
 		// *****************************************************
 		MainGame.waves.push( {
 			corn: 1
-			, boss: 1
+			, boss: 0
 			, cane: 1
 			, bear: 1
 			, moment: 2 	//400 points
 		});
 
-		// MainGame.waves.push( {
-		// 	corn: 10
-		// 	, boss: 0
-		// 	, cane: 5
-		// 	, bear: 2
-		// 	, moment: 3 	//400 points
-		// });
+		 MainGame.waves.push( {
+			corn: 10
+			, boss: 0
+			, cane: 5
+			, bear: 2
+			, moment: 3 	//400 points
+		});
 
 		// MainGame.waves.push( {
 		// 	corn: 0

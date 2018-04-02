@@ -43,7 +43,7 @@ MainGame.GameOverState.prototype = {
 		// push.
 		this.submit_score(InventoryManager.points, this.win);
 
-		var replay_btn = new Phaser.Button(this.game, 300, 600, 'replay', function() {
+		var replay_btn = new Phaser.Button(this.game, 300, 650, 'replay', function() {
 
 			// Can't do this 'cause the states aren't re-initialized on each create.
 			// this.game.camera.follow(null);
@@ -55,7 +55,7 @@ MainGame.GameOverState.prototype = {
 		replay_btn.fixedToCamera = true;
 		this.game.add.existing(replay_btn);		
 
-		var switch_btn = new Phaser.Button(this.game, 600, 600, 'switch', function() {
+		var switch_btn = new Phaser.Button(this.game, 650, 650, 'switch', function() {
 			// TODO: update this to point to the OTHER version of the game!
 			if (MainGame.addictingMode) {
 				window.location.href = "http://127.0.0.1:8080/";

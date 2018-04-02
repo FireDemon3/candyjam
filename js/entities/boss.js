@@ -185,3 +185,20 @@ Boss.prototype.die = function(points){
 
 	this.destroy();		
 }
+// game.time.events.loop(Phaser.Timer.SECOND, updateCounter, this);
+
+// }
+// heal: function(amount) {
+
+// 	if (this.alive)
+// 	{
+// 		this.health += amount;
+
+// 		if (this.health > this.maxHealth)
+// 		{
+// 			this.health = this.maxHealth;
+// 		}
+// 	}
+// }
+
+

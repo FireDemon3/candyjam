@@ -9,8 +9,8 @@ function Cane(game, spawn){
 	this.maxHealth = 80;
 	this.speed = 70;
 
-	this.animations.add('left', [0,1,2,3], 5, true);
-	this.animations.add('right', [4,5,6,7], 5, true);
+	this.animations.add('left', [0,1,2,3], 8, true);
+	this.animations.add('right', [4,5,6,7], 8, true);
 
 	this.animations.play('right');
 

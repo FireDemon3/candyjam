@@ -20,44 +20,47 @@ function MenuScreen(game){
 
 	this.pointsText = this.game.add.text(640, 80, "Points Available: " + this.availablePoints, { font: "22px monospace", fill: '#ffffff'}, this);
 
-	//Turret small
-	this.t1_bg = this.create(660, 200, 'toolbar_slot_background');
-	this.t1_bg.anchor.setTo(0.5, 0.5);
-	this.t1 = this.create(660, 200, 'turret_small_icon');
-	this.t1.anchor.setTo(0.5, 0.5);
-	this.t1_text 		= this.game.add.text(650, 200, InventoryManager.inventory[2].amount.toString(), { font: "12px Arial", fill: '#ffffff'}, this);
-	this.t1_title_text  = this.game.add.text(645, 150, "Small Turret", { font: "18px monospace", fill: '#ffffff'}, this);
-	this.t1_range_text  = this.game.add.text(700, 180, "Range: 500", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.t1_damage_text = this.game.add.text(700, 200, "Damage: 5 (x1)", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.t1_cost_text   = this.game.add.text(700, 220, "Cost: " + MainGame.points.turret1, { font: "14px monospace", fill: '#ffffff'}, this);
-	this.t1_btn = new Phaser.Button(this.game, 880, 190, 'buy_btn', this.buyTurretSmall, this, 1, 0, 0);
-	this.add(this.t1_btn);
 
-	//Turret big
-	this.t2_bg = this.create(660, 310, 'toolbar_slot_background');
-	this.t2_bg.anchor.setTo(0.5, 0.5);
-	this.t2 = this.create(660, 310, 'turret_big_icon');
-	this.t2.anchor.setTo(0.5, 0.5);
-	this.t2_text 		= this.game.add.text(650, 310, InventoryManager.inventory[3].amount.toString(), { font: "12px Arial", fill: '#ffffff'}, this);
-	this.t2_title_text 	= this.game.add.text(645, 260, "Large Turret", { font: "18px monospace", fill: '#ffffff'}, this);
-	this.t2_range_text 	= this.game.add.text(700, 290, "Range: 300", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.t2_damage_text = this.game.add.text(700, 310, "Damage: 8 (x3)", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.t2_cost_text 	= this.game.add.text(700, 330, "Cost: " + MainGame.points.turret2, { font: "14px monospace", fill: '#ffffff'}, this);
-	this.t2_btn = new Phaser.Button(this.game, 880, 300, 'buy_btn', this.buyTurretBig, this, 1, 0, 0);
-	this.add(this.t2_btn);
+	if(MainGame.addictingMode){	
+		//Turret small
+		this.t1_bg = this.create(660, 200, 'toolbar_slot_background');
+		this.t1_bg.anchor.setTo(0.5, 0.5);
+		this.t1 = this.create(660, 200, 'turret_small_icon');
+		this.t1.anchor.setTo(0.5, 0.5);
+		this.t1_text 		= this.game.add.text(650, 200, InventoryManager.inventory[2].amount.toString(), { font: "12px Arial", fill: '#ffffff'}, this);
+		this.t1_title_text  = this.game.add.text(645, 150, "Small Turret", { font: "18px monospace", fill: '#ffffff'}, this);
+		this.t1_range_text  = this.game.add.text(700, 180, "Range: 500", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.t1_damage_text = this.game.add.text(700, 200, "Damage: 5 (x1)", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.t1_cost_text   = this.game.add.text(700, 220, "Cost: " + MainGame.points.turret1, { font: "14px monospace", fill: '#ffffff'}, this);
+		this.t1_btn = new Phaser.Button(this.game, 880, 190, 'buy_btn', this.buyTurretSmall, this, 1, 0, 0);
+		this.add(this.t1_btn);
 
-	//Hammers
-	this.h_bg = this.create(660, 420, 'toolbar_slot_background');
-	this.h_bg.anchor.setTo(0.5, 0.5);
-	this.h = this.create(660, 420, 'hammer_icon');
-	this.h.anchor.setTo(0.5, 0.5);
-	this.h_text 		= this.game.add.text(650, 420, InventoryManager.inventory[1].amount.toString(),  { font: "12px Arial", fill: '#ffffff'}, this);
-	this.h_title_text 	= this.game.add.text(645, 370, "Repair Hammer", { font: "18px monospace", fill: '#ffffff'}, this);
-	this.h_extra_text 	= this.game.add.text(700, 400, "Repairs one turret", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.h_extra_text2 	= this.game.add.text(700, 415, "to full health", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.h_cost_text 	= this.game.add.text(700, 440, "Cost: " + MainGame.points.hammer, { font: "14px monospace", fill: '#ffffff'}, this);
-	this.h_btn = new Phaser.Button(this.game, 880, 410, 'buy_btn', this.buyHammer, this, 1, 0, 0);
-	this.add(this.h_btn);
+		//Turret big
+		this.t2_bg = this.create(660, 310, 'toolbar_slot_background');
+		this.t2_bg.anchor.setTo(0.5, 0.5);
+		this.t2 = this.create(660, 310, 'turret_big_icon');
+		this.t2.anchor.setTo(0.5, 0.5);
+		this.t2_text 		= this.game.add.text(650, 310, InventoryManager.inventory[3].amount.toString(), { font: "12px Arial", fill: '#ffffff'}, this);
+		this.t2_title_text 	= this.game.add.text(645, 260, "Large Turret", { font: "18px monospace", fill: '#ffffff'}, this);
+		this.t2_range_text 	= this.game.add.text(700, 290, "Range: 300", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.t2_damage_text = this.game.add.text(700, 310, "Damage: 8 (x3)", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.t2_cost_text 	= this.game.add.text(700, 330, "Cost: " + MainGame.points.turret2, { font: "14px monospace", fill: '#ffffff'}, this);
+		this.t2_btn = new Phaser.Button(this.game, 880, 300, 'buy_btn', this.buyTurretBig, this, 1, 0, 0);
+		this.add(this.t2_btn);
+
+		//Hammers
+		this.h_bg = this.create(660, 420, 'toolbar_slot_background');
+		this.h_bg.anchor.setTo(0.5, 0.5);
+		this.h = this.create(660, 420, 'hammer_icon');
+		this.h.anchor.setTo(0.5, 0.5);
+		this.h_text 		= this.game.add.text(650, 420, InventoryManager.inventory[1].amount.toString(),  { font: "12px Arial", fill: '#ffffff'}, this);
+		this.h_title_text 	= this.game.add.text(645, 370, "Repair Hammer", { font: "18px monospace", fill: '#ffffff'}, this);
+		this.h_extra_text 	= this.game.add.text(700, 400, "Repairs one turret", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.h_extra_text2 	= this.game.add.text(700, 415, "to full health", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.h_cost_text 	= this.game.add.text(700, 440, "Cost: " + MainGame.points.hammer, { font: "14px monospace", fill: '#ffffff'}, this);
+		this.h_btn = new Phaser.Button(this.game, 880, 410, 'buy_btn', this.buyHammer, this, 1, 0, 0);
+		this.add(this.h_btn);
+	}
 
 	//First Aid
 	/*this.f_bg = this.create(660, 530, 'toolbar_slot_background');

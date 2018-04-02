@@ -175,29 +175,13 @@ Boss.prototype.die = function(points){
 		InventoryManager.points += MainGame.points.kill_boss;
 	}
 	
+	// Kill off all the other baddies too, it forces end of the game!
 	for( var i = 0; i < CollisionManager.groups.baddies.length; i++){
 		var baddie = CollisionManager.groups.baddies[i];
-		//console.log(baddie.name);
-		// baddie.die();
 		if(baddie.name != "boss") {
 			baddie.die();
 		}
 	}	
 
-	//var self = this;
-	setTimeout(function() {
-			//self.destroy();
-			// GUIManager.destroy();
-			// WaveManager.destroy();
-			// self.game.state.start('GameOver');	
-
-			GUIManager.destroy();
-			WaveManager.destroy();
-			this.game.state.states['GameOver'].win = true;
-			this.game.state.start('GameOver');	
-
-	}, 5000);
-
-	
 	this.destroy();		
 }

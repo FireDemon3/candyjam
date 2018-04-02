@@ -17,13 +17,13 @@ MainGame.waves = [];
 			, moment: 2 	//400 points
 		});
 
-		 MainGame.waves.push( {
-			corn: 10
-			, boss: 0
-			, cane: 5
-			, bear: 2
-			, moment: 3 	//400 points
-		});
+		//  MainGame.waves.push( {
+		// 	corn: 10
+		// 	, boss: 0
+		// 	, cane: 5
+		// 	, bear: 2
+		// 	, moment: 3 	//400 points
+		// });
 
 		// MainGame.waves.push( {
 		// 	corn: 0
@@ -93,13 +93,13 @@ MainGame.waves = [];
 		// Regular mode                                                         
 		// *****************************************************
 		MainGame.waves.push( {
-			corn: 10
+			corn: 1
 			, boss: 0
 			, cane: 0
 			, bear: 0
 			, moment: 1 	//400 points
 		});
-
+/*
 		MainGame.waves.push({
 				corn: 6
 			, boss: 0
@@ -139,5 +139,6 @@ MainGame.waves = [];
 			, bear: 10
 			, moment: 4 	//1200 points
 		});
+		*/
 	}
 	

@@ -6,20 +6,48 @@ MainGame.GameOverState = function(game){
 
 MainGame.GameOverState.prototype = {
 
+
+	submit_score: function(score) {
+
+		var uq = localStorage.getItem('uq');
+		var player = localStorage.getItem('player');
+		
+		var fd = new FormData();
+		fd.append("player", player || "No Name");
+		fd.append("player_uq", uq || "nil");
+		fd.append("score", score || "0");
+		fd.append("duration", Math.round((new Date() - MainGame._startDate)/1000)); // game duration in seconds
+
+		// Don't include 'mode' parameter for regular game mode!
+		if (MainGame.addictingMode) {
+			fd.append("mode", "addicting");
+		}		
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', '/stats/index.php', true);
+		xhr.send(fd);
+	},
+
 	create: function(){
 		if(this.win){
-
 			var s = this.add.sprite(1024/2, 768/2, 'youwin');
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
-		}
-		else{
+		} else {
 			var s = this.add.sprite(1024/2, 768/2, 'youlose');
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
 		}
+		
+		// push.
+		this.submit_score(InventoryManager.points);
 
 		var replay_btn = new Phaser.Button(this.game, 300, 600, 'replay', function() {
+
+			// Can't do this 'cause the states aren't re-initialized on each create.
+			// this.game.camera.follow(null);
+			// this.game.state.start('MainMenu');
+
 			window.location.href = window.location.href;
 		}, this, 1, 0, 0);
 		replay_btn.anchor.setTo(0.5, 0.5);

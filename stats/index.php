@@ -33,7 +33,30 @@ $spreadsheetId = '1r2tqX7hcjEbUT7_Q2CWZjd4zxS77kf8XVETvDOkPKHA';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // The request is using the POST method
 
-    print_r("hey");
+    $sheet = "regular";
+    if (isset($_POST['mode'])) {
+        $sheet = "addicting";
+    }
+    $player = $_POST['player'];
+    $playerUq = $_POST['player_uq'];
+    $duration = $_POST['duration'];
+    $score = $_POST['score'];
+    
+    if ($player) {
+        $range = "{$sheet}!A2:E";
+        $valueRange = new Google_Service_Sheets_ValueRange();
+        $valueRange->setValues(["values" => [$player, $playerUq, $duration, $score]]); 
+        $conf = ["valueInputOption" => "RAW"];
+        // $ins = ["insertDataOption" => "INSERT_ROWS"];
+        $sheets->spreadsheets_values->append($spreadsheetId, $range, $valueRange, $conf); //, $ins
+
+        $result = ["result" => "Inserted"];  
+    } else {
+        $result = ["result" => "NoPlayer"];  
+    }
+    // Return in JSON (easily used by JavaScript Ajax)
+    print_r(json_encode($result, JSON_FORCE_OBJECT));
+
     die();
 }
 

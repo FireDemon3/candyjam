@@ -106,8 +106,6 @@ WaveManager.prototype.update = function(){
 			}
 			else{
 				var baddie = baddies[this.getRandomInt(0, baddies.length - 1)];
-//TODO make boss spawn last
-console.log (baddie)
 				switch(baddie){
 					case 'corn':
 						var b = new Corn(this.game, this.getSpawn());
@@ -122,7 +120,10 @@ console.log (baddie)
 						this.waves[this.currentWave].bear--;
 						break;
 					case 'boss':
-						if (this.waves[this.currentWave].corn == 0 && this.waves[this.currentWave].cane == 0 && this.waves[this.currentWave].bear == 0) {
+						// Only spawn the Boss if everything else has been spawned already!
+						if (this.waves[this.currentWave].corn == 0 
+								&& this.waves[this.currentWave].cane == 0 
+								&& this.waves[this.currentWave].bear == 0) {
 							var b = new Boss(this.game, this.getSpawn());
 							this.waves[this.currentWave].boss--;	
 						}
@@ -179,11 +180,13 @@ WaveManager.prototype.startNewWave = function(){
 	this.shotsFired = 0;
 
 	if(this.currentWave == this.waves.length){
-		//WIN
-		GUIManager.destroy();
-		WaveManager.destroy();
-		this.game.state.states['GameOver'].win = true;
-		this.game.state.start('GameOver');
+		//WIN, but after 2 seconds!
+		setTimeout(function() {
+			GUIManager.destroy();
+			WaveManager.destroy();
+			this.game.state.states['GameOver'].win = true;
+			this.game.state.start('GameOver');
+		}, 2000);
 	}
 	else{
 		

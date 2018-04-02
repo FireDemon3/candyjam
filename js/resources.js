@@ -26,8 +26,8 @@ MainGame.resources.LoaderState = {
 			
 	  	/*, {name: 'tileset2', path: assetsFolder + '/images/tileset2.png'}*/
 	  	, {name: 'bullet', path: assetsFolder + '/images/bullet.png'}
-		 , {name: 'bullet_pink', path: assetsFolder + '/images/bullet_pink.png'}
-		 , {name: 'bullet_boss', path: assetsFolder + '/images/bullet_boss.png'}
+		, {name: 'bullet_pink', path: assetsFolder + '/images/bullet_pink.png'}
+		, {name: 'bullet_boss', path: assetsFolder + '/images/bullet_boss.png'}
 	  	, {name: 'tooth', path: assetsFolder + '/images/tooth.png'}
 
 	  	, {name: 'toolbar_slot_background', path: assetsFolder + '/images/toolbar_slot_background.png'}
@@ -96,9 +96,9 @@ MainGame.resources.LoaderState = {
 		, {name: 'baddie_boss_die_sfx', path: assetsFolder + '/audio/baddie_boss_die.wav'}
 		, {name: 'player_hurt_sfx', path: assetsFolder + '/audio/player_hurt.wav'}
 		/*, {name: 'menu_music', path: assetsFolder + '/audio/spiff_tune_to_the_moon.mp3'}*/
-		, {name: 'game_music', path: assetsFolder + '/audio/run_music.mp3'}
+		, {name: 'game_music', path: assetsFolder + ( MainGame.addictingMode ? '/audio/run_music.mp3' : '/audio/spiff_tune_to_the_moon.mp3')}
 	]
 };
 
-
+//if (MainGame.addictingMode) {
 

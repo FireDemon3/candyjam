@@ -12,7 +12,13 @@ function Toolbar(game){
 	this.arrow = this.create(46, 22, 'toolbar_arrow');
 	this.arrow.anchor.setTo(0.5, 0.5);
 
-	for( var i = 0; i < 4; i++ ){
+	var numSlots = 1;
+
+	if (MainGame.addictingMode) {
+		numSlots = 4;
+	}
+
+	for( var i = 0; i < numSlots; i++ ){
 
 		var obj = {};
 

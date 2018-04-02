@@ -48,9 +48,11 @@ MainGame.GameState.prototype = {
 		this.game.player_hurt_sfx.volume = .4;
 
 		InventoryManager.addToInventory('gun', 1);
-		InventoryManager.addToInventory('hammer', 0);
-		InventoryManager.addToInventory('turret_small', 0);
-		InventoryManager.addToInventory('turret_big', 0);
+		if (MainGame.addictingMode) {
+			InventoryManager.addToInventory('hammer', 0);
+			InventoryManager.addToInventory('turret_small', 0);
+			InventoryManager.addToInventory('turret_big', 0);
+		}
 	},
 
 	update: function(){

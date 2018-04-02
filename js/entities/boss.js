@@ -8,7 +8,11 @@ function Boss(game, spawn){
 	this.health = 60; // 600;
 	this.maxHealth = 600;
 	this.speed = 90;
-	console.log('hay!');
+	
+	this.lastHit = new Date();
+	this.maxDelay = 4000; // milliseconds
+
+	//console.log('hay!');
 	this.animations.add('left', [0,1,2,3], 5, true);
 	this.animations.add('right', [4,5,6,7], 5, true);
 
@@ -132,6 +136,7 @@ Boss.prototype._damage = function(amount, attacker){
 	this.damage(amount);
 	this._state = this.STATES.DAMAGED;
 	this.damageTimer = 0;
+	this.lastHit = new Date();
 
 	if(this.health <= 0
 		&& attacker.name == "player"){
@@ -141,6 +146,15 @@ Boss.prototype._damage = function(amount, attacker){
 }
 
 Boss.prototype.updateHealthBar = function(){
+
+	var hitDelay = new Date() - this.lastHit; // ms
+	if (hitDelay > this.maxDelay) {
+		this.health = (this.health * 1.3);
+		// Don't allow greater than max-health.
+		if (this.health > this.maxHealth) {
+			this.health = this.maxHealth;
+		}
+	}
 
 	this.healthBar.x = this.x;
 	this.healthBar.y = this.y + 40;

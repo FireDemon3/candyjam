@@ -4,6 +4,7 @@
   "description": "Invasion of the Orcs: Saga of the Orcish Horde ========",
   "main": "index.js",
   "scripts": {
+    "php": "php -S 127.0.0.1:8080 & php -S 0.0.0.0:8000", 
     "start": "http-server ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

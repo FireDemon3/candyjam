@@ -7,7 +7,7 @@ MainGame.GameOverState = function(game){
 MainGame.GameOverState.prototype = {
 
 
-	submit_score: function(score) {
+	submit_score: function(score, isWin) {
 
 		var uq = localStorage.getItem('uq');
 		var player = localStorage.getItem('player');
@@ -16,6 +16,7 @@ MainGame.GameOverState.prototype = {
 		fd.append("player", player || "No Name");
 		fd.append("player_uq", uq || "nil");
 		fd.append("score", score || "0");
+		fd.append("win", isWin || false);
 		fd.append("duration", Math.round((new Date() - MainGame._startDate)/1000)); // game duration in seconds
 
 		// Don't include 'mode' parameter for regular game mode!
@@ -40,7 +41,7 @@ MainGame.GameOverState.prototype = {
 		}
 		
 		// push.
-		this.submit_score(InventoryManager.points);
+		this.submit_score(InventoryManager.points, this.win);
 
 		var replay_btn = new Phaser.Button(this.game, 300, 600, 'replay', function() {
 

@@ -9,6 +9,7 @@ MainGame.MainMenuState.prototype = {
 
 		this.add.sprite(0, 0, 'mainmenu_bg');
 		var start_btn = new Phaser.Button(this.game, 1024/2, 600, 'start_btn', function(){
+			MainGame._startDate = new Date();
 			this.game.state.start('Game');
 		}, this, 1, 0, 0);
 		start_btn.anchor.setTo(0.5, 0.5);

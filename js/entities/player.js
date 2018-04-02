@@ -109,7 +109,7 @@ Player.prototype.attack = function(target){
 		return;
 	}
 
-	this.game.player_shoot_sfx.play();
+	this.game.player_shoot.play();
 	WaveManager.shotsFired++;
 
 	var start_x;

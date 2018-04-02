@@ -114,7 +114,7 @@ Cane.prototype.attack = function(target){
 		return;
 	}
 
-	this.game.player_shoot_sfx.play();
+	this.game.baddie_shoot.play();
 
 	var x = target.x - this.x;
 	var y = target.y - this.y;

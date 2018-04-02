@@ -95,9 +95,9 @@ MainGame.waves = [];
 		MainGame.waves.push( {
 			corn: 1
 			, boss: 0
-			, cane: 0
-			, bear: 0
-			, moment: 1 	//400 points
+			, cane: 1
+			, bear: 1
+			, moment: 2 	//400 points
 		});
 /*
 		MainGame.waves.push({

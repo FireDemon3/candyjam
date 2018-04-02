@@ -41,11 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $playerUq = $_POST['player_uq'];
     $duration = $_POST['duration'];
     $score = $_POST['score'];
+    $win = $_POST['win'];
     
     if ($player) {
-        $range = "{$sheet}!A2:E";
+        $range = "{$sheet}!A2:F";
         $valueRange = new Google_Service_Sheets_ValueRange();
-        $valueRange->setValues(["values" => [$player, $playerUq, $duration, $score]]); 
+        $valueRange->setValues(["values" => [$player, $playerUq, $duration, $score, $win]]); 
         $conf = ["valueInputOption" => "RAW"];
         // $ins = ["insertDataOption" => "INSERT_ROWS"];
         $sheets->spreadsheets_values->append($spreadsheetId, $range, $valueRange, $conf); //, $ins
@@ -93,9 +94,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $data[] = [
                 'player' => $row[0],
                 // 'player_uq' => $row[1],
-                // 'start_date' => $row[2],
-                // 'end_date' => $row[3],
-                'score' => (int)$row[4],
+                // 'duration' => (int)$row[2],
+                'score' => (int)$row[3],
+                // 'win' => $row[4],
             ];
 
         }

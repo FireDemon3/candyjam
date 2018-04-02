@@ -14,14 +14,14 @@ function MenuScreen(game){
 	
 	this.waveCompleteText = this.game.add.text(50, 150, "Wave Complete!", { font: "48px monospace", fill: '#ffffff'}, this);
 	this.waveTimeText = this.game.add.text(50, 220, "Time: 0", { font: "24px monospace", fill: '#ffffff'}, this);
-	//this.enemiesKillText = this.game.add.text(50, 260, "Enemies Killed: 0", { font: "24px monospace", fill: '#ffffff'}, this);
+	//this.enemiesKillText = this.game.add.text(50, 245, "Enemies Killed: 0", { font: "24px monospace", fill: '#ffffff'}, this);
 	this.accuracyText = this.game.add.text(50, 270, "Accuracy: 0", { font: "24px monospace", fill: '#ffffff'}, this);
 
+	if(MainGame.addictingMode){
+		this.pointsText = this.game.add.text(640, 80, "Points Available: " + this.availablePoints, { font: "22px monospace", fill: '#ffffff'}, this);
 
-	this.pointsText = this.game.add.text(640, 80, "Points Available: " + this.availablePoints, { font: "22px monospace", fill: '#ffffff'}, this);
 
-
-	if(MainGame.addictingMode){	
+		
 		//Turret small
 		this.t1_bg = this.create(660, 200, 'toolbar_slot_background');
 		this.t1_bg.anchor.setTo(0.5, 0.5);
@@ -60,19 +60,22 @@ function MenuScreen(game){
 		this.h_cost_text 	= this.game.add.text(700, 440, "Cost: " + MainGame.points.hammer, { font: "14px monospace", fill: '#ffffff'}, this);
 		this.h_btn = new Phaser.Button(this.game, 880, 410, 'buy_btn', this.buyHammer, this, 1, 0, 0);
 		this.add(this.h_btn);
+
+		//First Aid
+		/*this.f_bg = this.create(660, 530, 'toolbar_slot_background');
+		this.f_bg.anchor.setTo(0.5, 0.5);*/
+		this.f = this.create(660, 530, 'player');
+		this.f.anchor.setTo(0.5, 0.5);
+		this.f_title_text 	= this.game.add.text(645, 480, "First Aid", { font: "18px monospace", fill: '#ffffff'}, this);
+		this.f_extra_text 	= this.game.add.text(700, 510, "Heals the player", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.f_extra_text2 	= this.game.add.text(700, 525, "for 50 HP", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.f_cost_text 	= this.game.add.text(700, 550, "Cost: " + MainGame.points.firstaid, { font: "14px monospace", fill: '#ffffff'}, this);
+		this.f_btn = new Phaser.Button(this.game, 880, 520, 'buy_btn', this.buyFirstAid, this, 1, 0, 0);
+		this.add(this.f_btn);
+
 	}
 
-	//First Aid
-	/*this.f_bg = this.create(660, 530, 'toolbar_slot_background');
-	this.f_bg.anchor.setTo(0.5, 0.5);*/
-	this.f = this.create(660, 530, 'player');
-	this.f.anchor.setTo(0.5, 0.5);
-	this.f_title_text 	= this.game.add.text(645, 480, "First Aid", { font: "18px monospace", fill: '#ffffff'}, this);
-	this.f_extra_text 	= this.game.add.text(700, 510, "Heals the player", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.f_extra_text2 	= this.game.add.text(700, 525, "for 50 HP", { font: "14px monospace", fill: '#ffffff'}, this);
-	this.f_cost_text 	= this.game.add.text(700, 550, "Cost: " + MainGame.points.firstaid, { font: "14px monospace", fill: '#ffffff'}, this);
-	this.f_btn = new Phaser.Button(this.game, 880, 520, 'buy_btn', this.buyFirstAid, this, 1, 0, 0);
-	this.add(this.f_btn);
+	
 
 
 	//

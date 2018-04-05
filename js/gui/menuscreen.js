@@ -21,7 +21,7 @@ function MenuScreen(game){
 		this.pointsText = this.game.add.text(640, 80, "Points Available: " + this.availablePoints, { font: "22px monospace", fill: '#ffffff'}, this);
 
 
-		
+
 		//Turret small
 		this.t1_bg = this.create(660, 200, 'toolbar_slot_background');
 		this.t1_bg.anchor.setTo(0.5, 0.5);

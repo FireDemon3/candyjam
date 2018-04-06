@@ -73,16 +73,13 @@ function MenuScreen(game){
 		this.f_btn = new Phaser.Button(this.game, 880, 520, 'buy_btn', this.buyFirstAid, this, 1, 0, 0);
 		this.add(this.f_btn);
 
+		this.ready_btn = new Phaser.Button(this.game, 645, 640, 'ready_btn', this.readyWave, this, 1, 0, 0);
+		this.add(this.ready_btn);
+
+	} else {
+		this.ready_btn = new Phaser.Button(this.game, 352, 640, 'ready_btn', this.readyWave, this, 1, 0, 0);
+		this.add(this.ready_btn);
 	}
-
-	
-
-
-	//
-	//this.ready_btn = this.create(645, 640, 'ready_btn');
-	this.ready_btn = new Phaser.Button(this.game, 645, 640, 'ready_btn', this.readyWave, this, 1, 0, 0);
-	this.add(this.ready_btn);
-
 }
 
 MenuScreen.prototype = Object.create(Phaser.Group.prototype);
@@ -94,11 +91,12 @@ MenuScreen.prototype.update = function(){
 	this.waveTimeText.setText("Time: " + Math.floor(WaveManager.waveLength / 1000) + " seconds");
 	//this.enemiesKillText.setText("Enemies Killed: " + WaveManager.enemiesKilled);
 	this.accuracyText.setText("Accuracy: " + WaveManager.accuracy + "%");
-
-	this.t1_text.setText(InventoryManager.inventory[2].amount.toString());
-	this.t2_text.setText(InventoryManager.inventory[3].amount.toString());
-	this.h_text.setText(InventoryManager.inventory[1].amount.toString());
-	this.pointsText.setText("Points Available: " + InventoryManager.points);
+	if(MainGame.addictingMode){
+		this.t1_text.setText(InventoryManager.inventory[2].amount.toString());
+		this.t2_text.setText(InventoryManager.inventory[3].amount.toString());
+		this.h_text.setText(InventoryManager.inventory[1].amount.toString());
+		this.pointsText.setText("Points Available: " + InventoryManager.points);
+	}
 }
 
 MenuScreen.prototype.buyTurretSmall = function(){

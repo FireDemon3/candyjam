@@ -21,6 +21,10 @@ MainGame.MainMenuState.prototype = {
 		instructions_btn.anchor.setTo(0.5, 0.5);
 		this.game.add.existing(instructions_btn);*/
 
+		for(var i = 0; i < 5; i++){
+			this.points = this.game.add.text(880, 40, "Points: 0", { font: "18px monospace", fill: '#ffffff'}, this);
+		}
+
 		this.game.menumusic = this.game.add.audio('game_music', .4, true);
 		this.game.menumusic.play('',0,0.4,true);
 

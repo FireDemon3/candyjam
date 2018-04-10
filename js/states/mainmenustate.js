@@ -21,8 +21,11 @@ MainGame.MainMenuState.prototype = {
 		instructions_btn.anchor.setTo(0.5, 0.5);
 		this.game.add.existing(instructions_btn);*/
 
-		for(var i = 0; i < 5; i++){
-			this.points = this.game.add.text(880, 40, "Points: 0", { font: "18px monospace", fill: '#ffffff'}, this);
+		this.game.add.text(100, 510,"\tHighscores", { font: "25px monospace", fill: '#ffffff'});
+
+		for(var i = 0; i < 1; i++){
+			///this['score' + i] = 
+			this.game.add.text(80, 540, i + "\tMongoose", { font: "18px monospace", fill: '#ffffff'});
 		}
 
 		this.game.menumusic = this.game.add.audio('game_music', .4, true);

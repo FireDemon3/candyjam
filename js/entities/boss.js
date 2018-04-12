@@ -149,7 +149,7 @@ Boss.prototype.updateHealthBar = function(){
 
 	var hitDelay = new Date() - this.lastHit; // ms
 	if (hitDelay > this.maxDelay) {
-		this.health = (this.health + this.health * 0.5)("1000ms delay");
+		this.health = (this.health * 1.1);
 		
 		// Don't allow greater than max-health.
 		if (this.health > this.maxHealth) {

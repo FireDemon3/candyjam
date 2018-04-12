@@ -10,7 +10,7 @@ function Boss(game, spawn){
 	this.speed = 90;
 	
 	this.lastHit = new Date();
-	this.maxDelay = 4000; // milliseconds
+	this.maxDelay = 2000; // milliseconds
 
 	//console.log('hay!');
 	this.animations.add('left', [0,1,2,3], 5, true);
@@ -149,7 +149,8 @@ Boss.prototype.updateHealthBar = function(){
 
 	var hitDelay = new Date() - this.lastHit; // ms
 	if (hitDelay > this.maxDelay) {
-		this.health = (this.health * 1.3);
+		this.health = (this.health + this.health * 0.5)("1000ms delay");
+		
 		// Don't allow greater than max-health.
 		if (this.health > this.maxHealth) {
 			this.health = this.maxHealth;

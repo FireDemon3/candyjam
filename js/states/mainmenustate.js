@@ -64,7 +64,7 @@ MainGame.MainMenuState.prototype = {
 						if (scoreData) {
 							var spacePaddedScore = (scoreData.score + '    ').substring(0, Math.max(scoreData.score.toString().length, 4));
 							var playerText = spacePaddedScore + ' ' + scoreData.player;
-							this.game.add.text(100, 540 + (i * 30), playerText, { font: "18px monospace", fill: '#ffffff'});
+							this.game.add.text(100, 540 + (i * 30), playerText, { font: "bold 20px monospace", fill: '#ffffff'});
 						}
 					}
 				},

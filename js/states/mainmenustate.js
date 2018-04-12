@@ -15,18 +15,17 @@ MainGame.MainMenuState.prototype = {
 		start_btn.anchor.setTo(0.5, 0.5);
 		this.game.add.existing(start_btn);
 
+		var name_btn = new Phaser.Button(this.game, 1024/2, 680, 'name_btn', function(){
+			//MainGame._startDate = new Date();
+			//this.game.state.start('Game');
+			var player = localStorage.getItem('player');
+			player = prompt("Welcome, \nPlease enter your name", player || '');
+			localStorage.setItem('player', player);
+		}, this, 1, 0, 0);
+		name_btn.anchor.setTo(0.5, 0.5);
+		this.game.add.existing(name_btn);
 
 		if(MainGame.addictingMode){
-			var name_btn = new Phaser.Button(this.game, 1024/2, 680, 'name_btn', function(){
-				//MainGame._startDate = new Date();
-				//this.game.state.start('Game');
-				var player = localStorage.getItem('player');
-				player = prompt("Welcome, \nPlease enter your name", player || '');
-				localStorage.setItem('player', player);
-			}, this, 1, 0, 0);
-			name_btn.anchor.setTo(0.5, 0.5);
-			this.game.add.existing(name_btn);
-
 			/*var instructions_btn = new Phaser.Button(this.game, 1024/2, 680, 'instructions_btn', function(){
 				console.log("instructions");
 			}, this, 1, 0, 0);

@@ -15,17 +15,30 @@ MainGame.MainMenuState.prototype = {
 		start_btn.anchor.setTo(0.5, 0.5);
 		this.game.add.existing(start_btn);
 
-		/*var instructions_btn = new Phaser.Button(this.game, 1024/2, 680, 'instructions_btn', function(){
-			console.log("instructions");
-		}, this, 1, 0, 0);
-		instructions_btn.anchor.setTo(0.5, 0.5);
-		this.game.add.existing(instructions_btn);*/
 
-		this.game.add.text(100, 510,"\tHighscores", { font: "25px monospace", fill: '#ffffff'});
+		if(MainGame.addictingMode){
+			var name_btn = new Phaser.Button(this.game, 850, 600, 'name_btn', function(){
+				//MainGame._startDate = new Date();
+				//this.game.state.start('Game');
+				var player = localStorage.getItem('player');
+				player = prompt("Welcome, \nPlease enter your name", player || '');
+				localStorage.setItem('player', player);
+			}, this, 1, 0, 0);
+			name_btn.anchor.setTo(0.5, 0.5);
+			this.game.add.existing(name_btn);
 
-		for(var i = 0; i < 1; i++){
-			///this['score' + i] = 
-			this.game.add.text(80, 540, i + "\tMongoose", { font: "18px monospace", fill: '#ffffff'});
+			/*var instructions_btn = new Phaser.Button(this.game, 1024/2, 680, 'instructions_btn', function(){
+				console.log("instructions");
+			}, this, 1, 0, 0);
+			instructions_btn.anchor.setTo(0.5, 0.5);
+			this.game.add.existing(instructions_btn);*/
+
+			this.game.add.text(100, 510,"\tHighscores", { font: "25px monospace", fill: '#ffffff'});
+
+			for(var i = 0; i < 7; i++){
+				///this['score' + i] = 
+				this.game.add.text(100, 540 + (i * 30), i + "\tMongoose", { font: "18px monospace", fill: '#ffffff'});
+			}
 		}
 
 		this.game.menumusic = this.game.add.audio('game_music', .4, true);

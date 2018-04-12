@@ -25,9 +25,7 @@ if (!rand) {
     localStorage.setItem('uq', rand);
 }
 
-var player = localStorage.getItem('player');
-player = prompt("Welcome, \nPlease enter your name", player || '');
-localStorage.setItem('player', player);
+
 
 
 game.state.start('Boot');

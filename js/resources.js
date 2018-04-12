@@ -83,6 +83,7 @@ MainGame.resources.LoaderState = {
 		, {name: 'ready_btn', path: assetsFolder + '/spritesheets/ready_btn.png', width: 320, height: 60}
 
 		, {name: 'start_btn', path: assetsFolder + '/spritesheets/start_btn.png', width: 288, height: 71}
+		, {name: 'name_btn', path: assetsFolder + '/spritesheets/name_btn.png', width: 141, height: 35}
 		, {name: 'instructions_btn', path: assetsFolder + '/spritesheets/instructions_btn.png', width: 288, height: 71}
 	]
 	, tilemaps: [

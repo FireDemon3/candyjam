@@ -52,7 +52,7 @@ MainGame.MainMenuState.prototype = {
 		} else {
 			// prompt: Enter your name:
 			player = prompt("Welcome, \nPlease enter your name", player || '');
-			localStorage.setItem('player', player);
+			localStorage.setItem('player', player || 'No Name');
 		}
 
 		if(MainGame.addictingMode){

@@ -8,7 +8,7 @@ MainGame.MainMenuState.prototype = {
 	create: function(){
 
 		this.add.sprite(0, 0, 'mainmenu_bg');
-		var start_btn = new Phaser.Button(this.game, 1024/2, 700, 'start_btn', function(){
+		var start_btn = new Phaser.Button(this.game, 1024/2, 650, 'start_btn', function(){
 			MainGame._startDate = new Date();
 			this.game.state.start('Game');
 		}, this, 1, 0, 0);
@@ -20,7 +20,7 @@ MainGame.MainMenuState.prototype = {
 			// show: Welcome back, Bob! [not you?]
 			var welcomeBackText = this.game.add.text(380, 520, "Welcome back, " + player, { font: "bold 25px monospace", fill: '#ffffff'});
 
-			var name_btn = new Phaser.Button(this.game, 460, 580, 'name_btn', function(){
+			var name_btn = new Phaser.Button(this.game, 1024/2, 580, 'name_btn', function(){
 				player = prompt("Welcome, \nPlease enter your name", player || '');
 				welcomeBackText.setText("Welcome back, " + player);
 				localStorage.setItem('player', player);

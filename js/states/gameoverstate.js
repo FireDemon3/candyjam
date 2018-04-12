@@ -57,10 +57,12 @@ MainGame.GameOverState.prototype = {
 
 		var switch_btn = new Phaser.Button(this.game, 650, 650, 'switch', function() {
 			// TODO: update this to point to the OTHER version of the game!
+
+			// Blue == addicting, red == regular version!
 			if (MainGame.addictingMode) {
-				window.location.href = "http://127.0.0.1:8080/";
+				window.location.href = "/red.php";
 			} else {                                                         
-				window.location.href = "http://192.168.2.157:8080/";
+				window.location.href = "/blue.php";
 			}
 		}, this, 1, 0, 0);
 		switch_btn.anchor.setTo(0.5, 0.5);

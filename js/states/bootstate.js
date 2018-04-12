@@ -3,7 +3,9 @@ var MainGame = {
 	addictingMode: true
 };
 
-if (window.location.host.indexOf('127') > -1) {
+console.log(window.location.href, window.location.href.indexOf('blue'));
+// Blue is the Addicting one!
+if (window.location.href.indexOf('red') > -1) {
 	MainGame.addictingMode = false;
 }
 

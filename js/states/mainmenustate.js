@@ -17,7 +17,7 @@ MainGame.MainMenuState.prototype = {
 
 
 		if(MainGame.addictingMode){
-			var name_btn = new Phaser.Button(this.game, 850, 600, 'name_btn', function(){
+			var name_btn = new Phaser.Button(this.game, 1024/2, 680, 'name_btn', function(){
 				//MainGame._startDate = new Date();
 				//this.game.state.start('Game');
 				var player = localStorage.getItem('player');

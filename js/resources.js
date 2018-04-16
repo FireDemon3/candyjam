@@ -2,14 +2,18 @@
 MainGame.resources = {};
 
 var assetsFolder;
-if (MainGame.addictingMode) {
+if (MainGame.addictingMode === 1) {
 	// Addicting version
 	assetsFolder = 'addicting-assets';
-	console.log("Playing the ADDICTING version", window.location.pathname);
+	console.log("Playing the ADDICTING version");
+} else if (MainGame.addictingMode === 2) {
+	// Addicting-2 version
+	assetsFolder = 'addicting-2-assets';
+	console.log("Playing the ADDICTING-2 version");
 } else {
 	// Normal version
 	assetsFolder = 'assets';
-	console.log("Playing the regular version", window.location.pathname);	
+	console.log("Playing the regular version");	
 }
 
 MainGame.resources.BootState = {
@@ -55,7 +59,8 @@ MainGame.resources.LoaderState = {
 	  	, {name: 'youlose', path: assetsFolder + '/images/youlose.png'}
 	  	, {name: 'youwin', path: assetsFolder + '/images/youwin.png'}
 	  	, {name: 'switch', path: assetsFolder + '/images/switch.png'}
-	  	, {name: 'replay', path: assetsFolder + '/images/replay.png'}
+		 , {name: 'replay', path: assetsFolder + '/images/replay.png'}
+		 , {name: 'Level2', path: assetsFolder + '/images/replay.png'}
 	]
 	, spritesheets: [
 		  {name: 'player', path: assetsFolder + '/spritesheets/player.png', width: 36, height: 36}
@@ -102,6 +107,4 @@ MainGame.resources.LoaderState = {
 		, {name: 'game_music', path: assetsFolder + ( MainGame.addictingMode ? '/audio/run_music.mp3' : '/audio/spiff_tune_to_the_moon.mp3')}
 	]
 };
-
-//if (MainGame.addictingMode) {
 

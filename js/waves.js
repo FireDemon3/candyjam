@@ -5,9 +5,28 @@
 
 MainGame.waves = [];
 
-	if (MainGame.addictingMode) {
+	if (MainGame.addictingMode === 1) {
 		// *****************************************************
-		// Addicting mode
+		// Addicting mode, Level 1
+		// *****************************************************
+		MainGame.waves.push( {
+			corn: 0
+			, boss: 1
+			, cane: 0
+			, bear: 0
+			, moment: 2 	//400 points
+		});
+
+		// //  MainGame.waves.push( {
+		// // 	corn: 1
+		// // 	, boss: 0
+		// // 	, cane: 5
+		// // 	, bear: 2
+		// // 	, moment: 3 	//400 points
+		// });
+	} else 	if (MainGame.addictingMode === 2) {
+		// *****************************************************
+		// Addicting mode, Level 2
 		// *****************************************************
 		MainGame.waves.push( {
 			corn: 1

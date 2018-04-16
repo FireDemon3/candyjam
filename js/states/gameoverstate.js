@@ -38,20 +38,19 @@ MainGame.GameOverState.prototype = {
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
 
-			var rand = localStorage.getItem('uq');
-			if (rand && MainGame.addictingMode === 1) {
-
+			if (MainGame.addictingMode === 1) {
 				// Create a hash from the playerUq and the 
 				// current time to prevent sharing of tokens!!
 				// In the Bootstate we will need to verify that the
 				// token matches the current playerUq and it's not expired.
+				var playerUq = localStorage.getItem('uq');
 				var hashLifetime = 1 * (60 * 60 * 1000); // One Hour
 				var hashExpires = new Date().getTime() + hashLifetime;
-				var hash = window.btoa(rand + '::' + hashExpires);
+				var hash = window.btoa(playerUq + '::' + hashExpires + '::' + InventoryManager.points);
 				localStorage.setItem('level_1_hash', hash);
 
-				// One-line let me play green.
-				// localStorage.setItem('level_1_hash', window.btoa(localStorage.getItem('uq') + '::' + (new Date().getTime() + (60 * 60 * 1000))));
+				// One-line, "let me play green".
+				// localStorage.setItem('level_1_hash', window.btoa(localStorage.getItem('uq') + '::' + (new Date().getTime() + (60 * 60 * 1000)) + '::' + 1234));
 
 				var Level2_btn = new Phaser.Button(this.game, 400, 200, 'Level2', function() {
 					// User has chosen to continue playing the next level!
@@ -59,19 +58,22 @@ MainGame.GameOverState.prototype = {
 				}, this, 1, 0, 0);
 				Level2_btn.anchor.setTo(0.5, 0.5);
 				Level2_btn.fixedToCamera = true;
-				this.game.add.existing(Level2_btn);		
-			}	
-
+				this.game.add.existing(Level2_btn);
+				
+			} else {
+				// Regular mode and Addicting mode Level 2 both submit winning scores here.
+				this.submit_score(InventoryManager.points, this.win);
+			}
 
 		} else {
 			var s = this.add.sprite(1024/2, 768/2, 'youlose');
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
+
+			// Losing games always push scores here, regardless the level.
+			this.submit_score(InventoryManager.points, this.win);
 		}
 		
-		// push.
-		this.submit_score(InventoryManager.points, this.win);
-
 		
 		var replay_btn = new Phaser.Button(this.game, 300, 650, 'replay', function() {
 

@@ -4,6 +4,12 @@ var MainGame = {
 };
 
 
+var playerUq = localStorage.getItem('uq');
+if (!playerUq) {
+    playerUq = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    localStorage.setItem('uq', playerUq);
+}
+
 // Red is the regular version!
 // Blue is the Addicting one!
 // Green is the Second level Addicting!
@@ -14,13 +20,16 @@ if (window.location.href.indexOf('blue') > -1) {
 	if (window.location.href.indexOf('green') > -1) {
 
 		// Are we allowed to play level2?
-		var rand = localStorage.getItem('uq');
 		var hash = localStorage.getItem('level_1_hash');
 		var decodedHash = window.atob(hash);
 		var hashArray = decodedHash.split('::');
 
-		if (hashArray.length === 2 && rand === hashArray[0] && hashArray[1] > new Date().getTime()) {
+		// TODO: turn this OFF!!
+		var isLucasTesting = true;
+		
+		if (isLucasTesting || (hashArray.length === 3 && playerUq === hashArray[0] && hashArray[1] > new Date().getTime())) {
 			MainGame.addictingMode = 2;
+			MainGame.startingPoints = hashArray[2] || 0;
 		} else {
 			// failed validation, remove it and fallback to Level 1.
 			MainGame.addictingMode = 1;

@@ -12,18 +12,11 @@ game.state.add('GameOver', MainGame.GameOverState);
 
 CollisionManager = new CollisionManager(game);
 InputManager = new InputManager(game);
-InventoryManager = new InventoryManager(game);
+InventoryManager = new InventoryManager(game, MainGame.startingPoints);
 GUIManager = new GUIManager(game);
 WaveManager = new WaveManager(game);
 
 document.addEventListener("mousewheel", function(e){ InputManager.handleMouseWheel(e); }, false);
-
-
-var rand = localStorage.getItem('uq');
-if (!rand) {
-    rand = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    localStorage.setItem('uq', rand);
-}
 
 
 

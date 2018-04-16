@@ -3,13 +3,31 @@ var MainGame = {
 	addictingMode: 0
 };
 
-console.log(window.location.href, window.location.href.indexOf('blue'));
+
+// Red is the regular version!
 // Blue is the Addicting one!
+// Green is the Second level Addicting!
+
 if (window.location.href.indexOf('blue') > -1) {
 	MainGame.addictingMode = 1;
-}
-if (window.location.href.indexOf('green') > -1) {
-	MainGame.addictingMode = 2;
+} else {
+	if (window.location.href.indexOf('green') > -1) {
+
+		// Are we allowed to play level2?
+		var rand = localStorage.getItem('uq');
+		var hash = localStorage.getItem('level_1_hash');
+		var decodedHash = window.atob(hash);
+		var hashArray = decodedHash.split('::');
+
+		if (hashArray.length === 2 && rand === hashArray[0] && hashArray[1] > new Date().getTime()) {
+			MainGame.addictingMode = 2;
+		} else {
+			// failed validation, remove it and fallback to Level 1.
+			MainGame.addictingMode = 1;
+		}
+		// Only accept a hash one time!
+		// localStorage.removeItem('level_1_hash');
+	}
 }
 
 MainGame.BootState = function(game){

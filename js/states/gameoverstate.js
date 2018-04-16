@@ -38,8 +38,21 @@ MainGame.GameOverState.prototype = {
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
 
+			var rand = localStorage.getItem('uq');
+			if (rand && MainGame.addictingMode === 1) {
 
-			if (MainGame.addictingMode === 1) {
+				// Create a hash from the playerUq and the 
+				// current time to prevent sharing of tokens!!
+				// In the Bootstate we will need to verify that the
+				// token matches the current playerUq and it's not expired.
+				var hashLifetime = 1 * (60 * 60 * 1000); // One Hour
+				var hashExpires = new Date().getTime() + hashLifetime;
+				var hash = window.btoa(rand + '::' + hashExpires);
+				localStorage.setItem('level_1_hash', hash);
+
+				// One-line let me play green.
+				// localStorage.setItem('level_1_hash', window.btoa(localStorage.getItem('uq') + '::' + (new Date().getTime() + (60 * 60 * 1000))));
+
 				var Level2_btn = new Phaser.Button(this.game, 400, 200, 'Level2', function() {
 					// User has chosen to continue playing the next level!
 					window.location.href = '/green.php';

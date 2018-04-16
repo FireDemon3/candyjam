@@ -20,7 +20,10 @@ MainGame.GameOverState.prototype = {
 		fd.append("duration", Math.round((new Date() - MainGame._startDate)/1000)); // game duration in seconds
 
 		// Don't include 'mode' parameter for regular game mode!
-		if (MainGame.addictingMode) {
+		if (MainGame.addictingMode === 1) {
+			fd.append("mode", "addicting");
+		}		
+		if (MainGame.addictingMode === 2) {
 			fd.append("mode", "addicting");
 		}		
 		
@@ -34,6 +37,24 @@ MainGame.GameOverState.prototype = {
 			var s = this.add.sprite(1024/2, 768/2, 'youwin');
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
+
+
+			if (MainGame.addictingMode === 1) {
+				// new btn
+				var Level2_btn = new Phaser.Button(this.game, 400, 200, 'Level2', function() {
+
+					// Can't do this 'cause the states aren't re-initialized on each create.
+					// this.game.camera.follow(null);
+					// this.game.state.start('MainMenu');
+		
+					window.location.href = window.location.href;
+				}, this, 1, 0, 0);
+				Level2_btn.anchor.setTo(0.5, 0.5);
+				Level2_btn.fixedToCamera = true;
+				this.game.add.existing(Level2_btn);		
+			}	
+
+
 		} else {
 			var s = this.add.sprite(1024/2, 768/2, 'youlose');
 			s.anchor.setTo(0.5, 0.5);
@@ -43,6 +64,7 @@ MainGame.GameOverState.prototype = {
 		// push.
 		this.submit_score(InventoryManager.points, this.win);
 
+		
 		var replay_btn = new Phaser.Button(this.game, 300, 650, 'replay', function() {
 
 			// Can't do this 'cause the states aren't re-initialized on each create.
@@ -56,7 +78,7 @@ MainGame.GameOverState.prototype = {
 		this.game.add.existing(replay_btn);		
 
 		var switch_btn = new Phaser.Button(this.game, 650, 650, 'switch', function() {
-			// TODO: update this to point to the OTHER version of the game!
+			// point to the OTHER version of the game!
 
 			// Blue == addicting, red == regular version!
 			if (MainGame.addictingMode) {

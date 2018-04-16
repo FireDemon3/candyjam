@@ -1,12 +1,15 @@
 
 var MainGame = {
-	addictingMode: true
+	addictingMode: 0
 };
 
 console.log(window.location.href, window.location.href.indexOf('blue'));
 // Blue is the Addicting one!
-if (window.location.href.indexOf('red') > -1) {
-	MainGame.addictingMode = false;
+if (window.location.href.indexOf('blue') > -1) {
+	MainGame.addictingMode = 1;
+}
+if (window.location.href.indexOf('green') > -1) {
+	MainGame.addictingMode = 2;
 }
 
 MainGame.BootState = function(game){

@@ -33,6 +33,9 @@ MainGame.GameOverState.prototype = {
 	},
 
 	create: function(){
+
+		var addReplaySwitch = true;
+
 		if(this.win){
 			var s = this.add.sprite(1024/2, 768/2, 'youwin');
 			s.anchor.setTo(0.5, 0.5);
@@ -59,7 +62,9 @@ MainGame.GameOverState.prototype = {
 				Level2_btn.anchor.setTo(0.5, 0.5);
 				Level2_btn.fixedToCamera = true;
 				this.game.add.existing(Level2_btn);
-				
+
+				// Don't show Replay or Switch when moving from Level 1 to Level 2.
+				addReplaySwitch = false;
 			} else {
 				// Regular mode and Addicting mode Level 2 both submit winning scores here.
 				this.submit_score(InventoryManager.points, this.win);
@@ -74,32 +79,33 @@ MainGame.GameOverState.prototype = {
 			this.submit_score(InventoryManager.points, this.win);
 		}
 		
-		
-		var replay_btn = new Phaser.Button(this.game, 300, 650, 'replay', function() {
+		if (addReplaySwitch) {		
+			var replay_btn = new Phaser.Button(this.game, 300, 650, 'replay', function() {
 
-			// Can't do this 'cause the states aren't re-initialized on each create.
-			// this.game.camera.follow(null);
-			// this.game.state.start('MainMenu');
+				// Can't do this 'cause the states aren't re-initialized on each create.
+				// this.game.camera.follow(null);
+				// this.game.state.start('MainMenu');
 
-			window.location.href = window.location.href;
-		}, this, 1, 0, 0);
-		replay_btn.anchor.setTo(0.5, 0.5);
-		replay_btn.fixedToCamera = true;
-		this.game.add.existing(replay_btn);		
+				window.location.href = window.location.href;
+			}, this, 1, 0, 0);
+			replay_btn.anchor.setTo(0.5, 0.5);
+			replay_btn.fixedToCamera = true;
+			this.game.add.existing(replay_btn);		
 
-		var switch_btn = new Phaser.Button(this.game, 650, 650, 'switch', function() {
-			// point to the OTHER version of the game!
+			var switch_btn = new Phaser.Button(this.game, 650, 650, 'switch', function() {
+				// point to the OTHER version of the game!
 
-			// Blue == addicting, red == regular version!
-			if (MainGame.addictingMode) {
-				window.location.href = "/red.php";
-			} else {                                                         
-				window.location.href = "/blue.php";
-			}
-		}, this, 1, 0, 0);
-		switch_btn.anchor.setTo(0.5, 0.5);
-		switch_btn.fixedToCamera = true;
-		this.game.add.existing(switch_btn);		
+				// Blue == addicting, red == regular version!
+				if (MainGame.addictingMode) {
+					window.location.href = "/red.php";
+				} else {                                                         
+					window.location.href = "/blue.php";
+				}
+			}, this, 1, 0, 0);
+			switch_btn.anchor.setTo(0.5, 0.5);
+			switch_btn.fixedToCamera = true;
+			this.game.add.existing(switch_btn);	
+		}
 	},
 
 	update: function(){

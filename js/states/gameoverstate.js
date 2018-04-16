@@ -40,14 +40,9 @@ MainGame.GameOverState.prototype = {
 
 
 			if (MainGame.addictingMode === 1) {
-				// new btn
 				var Level2_btn = new Phaser.Button(this.game, 400, 200, 'Level2', function() {
-
-					// Can't do this 'cause the states aren't re-initialized on each create.
-					// this.game.camera.follow(null);
-					// this.game.state.start('MainMenu');
-		
-					window.location.href = window.location.href;
+					// User has chosen to continue playing the next level!
+					window.location.href = '/green.php';
 				}, this, 1, 0, 0);
 				Level2_btn.anchor.setTo(0.5, 0.5);
 				Level2_btn.fixedToCamera = true;

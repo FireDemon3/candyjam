@@ -26,7 +26,7 @@ if (window.location.href.indexOf('blue') > -1) {
 			MainGame.addictingMode = 1;
 		}
 		// Only accept a hash one time!
-		// localStorage.removeItem('level_1_hash');
+		localStorage.removeItem('level_1_hash');
 	}
 }
 

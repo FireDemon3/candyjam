@@ -29,13 +29,14 @@ MainGame.MainMenuState.prototype = {
 
 		this.add.sprite(0, 0, 'mainmenu_bg');
 		if (MainGame.addictingMode === 2) {
-			var start_btn = new Phaser.Button(this.game, 700, 650, 'start_btn', function(){
+			var start_btn = new Phaser.Button(this.game, 750, 600, 'start_btn', function(){
 				MainGame._startDate = new Date();
 				this.game.state.start('Game');
 			}, this, 1, 0, 0);
 			start_btn.anchor.setTo(0.5, 0.5);
 			this.game.add.existing(start_btn);
-		} else {var start_btn = new Phaser.Button(this.game, 1024/2, 650, 'start_btn', function(){
+		} else {
+			var start_btn = new Phaser.Button(this.game, 1024/2, 650, 'start_btn', function(){
 			MainGame._startDate = new Date();
 			this.game.state.start('Game');
 		}, this, 1, 0, 0);

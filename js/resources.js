@@ -60,7 +60,7 @@ MainGame.resources.LoaderState = {
 	  	, {name: 'youwin', path: assetsFolder + '/images/youwin.png'}
 	  	, {name: 'switch', path: assetsFolder + '/images/switch.png'}
 		 , {name: 'replay', path: assetsFolder + '/images/replay.png'}
-		 , {name: 'Level2', path: assetsFolder + '/images/replay.png'}
+		 , {name: 'Level2', path: assetsFolder + '/images/Level2.png'}
 	]
 	, spritesheets: [
 		  {name: 'player', path: assetsFolder + '/spritesheets/player.png', width: 36, height: 36}

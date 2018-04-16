@@ -5,7 +5,7 @@ function InventoryManager(game, startingPoints){
 	this.inventory = [];
 	this.maxSpace = 5;
 
-	this.points = startingPoints || 0;
+	this.points = parseInt(startingPoints) || 0;
 
 	for(var i = 0; i < this.maxSpace; i++){
 		var obj = {

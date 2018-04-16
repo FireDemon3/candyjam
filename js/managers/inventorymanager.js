@@ -1,11 +1,11 @@
 
-function InventoryManager(game){
+function InventoryManager(game, startingPoints){
 	
 	this.game = game;
 	this.inventory = [];
 	this.maxSpace = 5;
 
-	this.points = 0;
+	this.points = startingPoints || 0;
 
 	for(var i = 0; i < this.maxSpace; i++){
 		var obj = {

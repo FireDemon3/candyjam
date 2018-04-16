@@ -42,26 +42,27 @@ MainGame.GameOverState.prototype = {
 			s.fixedToCamera = true;
 
 			if (MainGame.addictingMode === 1) {
-				// Create a hash from the playerUq and the 
-				// current time to prevent sharing of tokens!!
-				// In the Bootstate we will need to verify that the
-				// token matches the current playerUq and it's not expired.
-				var playerUq = localStorage.getItem('uq');
-				var hashLifetime = 1 * (60 * 60 * 1000); // One Hour
-				var hashExpires = new Date().getTime() + hashLifetime;
-				var hash = window.btoa(playerUq + '::' + hashExpires + '::' + InventoryManager.points);
-				localStorage.setItem('level_1_hash', hash);
 
-				// One-line, "let me play green".
+				// One-line, "let me play Level2".
 				// localStorage.setItem('level_1_hash', window.btoa(localStorage.getItem('uq') + '::' + (new Date().getTime() + (60 * 60 * 1000)) + '::' + 1234));
 
-				var Level2_btn = new Phaser.Button(this.game, 1024/2, 650, 'Level2', function() {
+				var level2_btn = new Phaser.Button(this.game, 1024/2, 650, 'Level2', function() {
 					// User has chosen to continue playing the next level!
-					window.location.href = '/green.php';
+					// Create a hash from the playerUq and the 
+					// current time to prevent sharing of tokens!!
+					// In the Bootstate we will need to verify that the
+					// token matches the current playerUq and it's not expired.
+					var playerUq = localStorage.getItem('uq');
+					var hashLifetime = 1 * (60 * 60 * 1000); // One Hour
+					var hashExpires = new Date().getTime() + hashLifetime;
+					var hash = window.btoa(playerUq + '::' + hashExpires + '::' + InventoryManager.points);
+					localStorage.setItem('level_1_hash', hash);
+
+					window.location.href = '/blue.php';
 				}, this, 1, 0, 0);
-				Level2_btn.anchor.setTo(0.5, 0.5);
-				Level2_btn.fixedToCamera = true;
-				this.game.add.existing(Level2_btn);
+				level2_btn.anchor.setTo(0.5, 0.5);
+				level2_btn.fixedToCamera = true;
+				this.game.add.existing(level2_btn);
 
 				// Don't show Replay or Switch when moving from Level 1 to Level 2.
 				addReplaySwitch = false;

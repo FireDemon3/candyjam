@@ -14,13 +14,6 @@ CollisionManager = new CollisionManager(game);
 InputManager = new InputManager(game);
 InventoryManager = new InventoryManager(game, MainGame.startingPoints);
 
-// Free Stuff for Level 2!!
-if (MainGame.addictingMode === 2) {
-    InventoryManager.addToInventory('turret_small', 2);
-    InventoryManager.addToInventory('turret_big', 1);
-    InventoryManager.addToInventory('hammer', 3);
-}
-
 GUIManager = new GUIManager(game);
 WaveManager = new WaveManager(game);
 

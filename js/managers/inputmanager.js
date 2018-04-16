@@ -143,12 +143,28 @@ InputManager.prototype.update = function(){
 			}
 		}
 
-		if(this.game.keys.DEBUG.isDown){ console.log(InventoryManager.points)}
+		if(this.game.keys.DEBUG.isDown){ 
+			console.log('Points:', InventoryManager.points); 
+		}
+
+		// Use number keys to select the toolbar items
+		if(this.game.keys.GUN.isDown){ 
+			GUIManager.toolbar.selectSlot(0);
+		}
+		if(this.game.keys.HAMMER.isDown && GUIManager.toolbar.slots.length >= 1){ 
+			GUIManager.toolbar.selectSlot(1);
+		}
+		if(this.game.keys.TURRET_SMALL.isDown && GUIManager.toolbar.slots.length >= 2){ 
+			GUIManager.toolbar.selectSlot(2);
+		}
+		if(this.game.keys.TURRET_BIG.isDown && GUIManager.toolbar.slots.length >= 3){ 
+			GUIManager.toolbar.selectSlot(3);
+		}
 
 	}
 	else{
 
-
+		
 	}
 }
 

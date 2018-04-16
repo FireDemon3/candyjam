@@ -47,12 +47,22 @@ MainGame.GameState.prototype = {
 		this.game.player_hurt_sfx = this.game.add.audio('player_hurt_sfx');
 		this.game.player_hurt_sfx.volume = .4;
 
+		// All versions of the game get a gun.
 		InventoryManager.addToInventory('gun', 1);
-		if (MainGame.addictingMode) {
+		
+		if (MainGame.addictingMode === 1) {
+			// Add toolbar items for Level 1
 			InventoryManager.addToInventory('hammer', 0);
 			InventoryManager.addToInventory('turret_small', 0);
 			InventoryManager.addToInventory('turret_big', 0);
+
+		} else if (MainGame.addictingMode === 2) {
+			// Add free stuff for Level 2!!
+			InventoryManager.addToInventory('hammer', 3);
+			InventoryManager.addToInventory('turret_small', 2);
+			InventoryManager.addToInventory('turret_big', 1);
 		}
+		
 	},
 
 	update: function(){

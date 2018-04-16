@@ -55,7 +55,7 @@ MainGame.GameOverState.prototype = {
 				// One-line, "let me play green".
 				// localStorage.setItem('level_1_hash', window.btoa(localStorage.getItem('uq') + '::' + (new Date().getTime() + (60 * 60 * 1000)) + '::' + 1234));
 
-				var Level2_btn = new Phaser.Button(this.game, 400, 200, 'Level2', function() {
+				var Level2_btn = new Phaser.Button(this.game, 1024/2, 650, 'Level2', function() {
 					// User has chosen to continue playing the next level!
 					window.location.href = '/green.php';
 				}, this, 1, 0, 0);

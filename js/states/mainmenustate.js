@@ -77,7 +77,6 @@ MainGame.MainMenuState.prototype = {
 
 		this.game.menumusic = this.game.add.audio('game_music', .4, true);
 		this.game.menumusic.play('',0,0.4,true);
-
 	},
 
 	update: function(){

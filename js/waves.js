@@ -29,20 +29,20 @@ MainGame.waves = [];
 		// Addicting mode, Level 2
 		// *****************************************************
 		MainGame.waves.push( {
-			corn: 1
+			corn: 0
 			, boss: 1
-			, cane: 1
-			, bear: 1
+			, cane: 0
+			, bear: 0
 			, moment: 2 	//400 points
 		});
 
-		 MainGame.waves.push( {
-			corn: 10
-			, boss: 0
-			, cane: 5
-			, bear: 2
-			, moment: 3 	//400 points
-		});
+		//  MainGame.waves.push( {
+		// 	corn: 10
+		// 	, boss: 0
+		// 	, cane: 5
+		// 	, bear: 2
+		// 	, moment: 3 	//400 points
+		// });
 
 		// MainGame.waves.push( {
 		// 	corn: 0

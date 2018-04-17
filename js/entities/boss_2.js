@@ -1,8 +1,8 @@
 
-function Boss(game, spawn){
+function Boss_2(game, spawn){
 	
 	this.game = game;
-	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
+	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'Boss_2');
 
 	this.anchor.setTo(0.5, 0.5);
 	this.health = 60; // 600;
@@ -26,7 +26,7 @@ function Boss(game, spawn){
 		, DAMAGED: 1
 	};
 
-	this.name = "boss";
+	this.name = "boss_2";
 
 	this._state = this.STATES.TRACKING;
 
@@ -37,10 +37,10 @@ function Boss(game, spawn){
 	this.game.add.existing(this);
 }
 
-Boss.prototype = Object.create( Phaser.Sprite.prototype );
-Boss.prototype.constructor = Boss;
+Boss_2.prototype = Object.create( Phaser.Sprite.prototype );
+Boss_2.prototype.constructor = Boss_2;
 
-Boss.prototype.update = function(){
+Boss_2.prototype.update = function(){
 
 	this.updateHealthBar();
 
@@ -71,7 +71,7 @@ Boss.prototype.update = function(){
 
 }
 
-Boss.prototype.withinShootingRange = function(target){
+Boss_2.prototype.withinShootingRange = function(target){
 	var dist = Math.abs(Math.sqrt((target.x - this.x)*(target.x - this.x)+(target.y - this.y)*(target.x - this.y)));
 
 	if(dist < 1000){
@@ -81,7 +81,7 @@ Boss.prototype.withinShootingRange = function(target){
 	return false;
 }
 
-Boss.prototype.withinFollowingRange = function(target){
+Boss_2.prototype.withinFollowingRange = function(target){
 	var dist = Math.abs(Math.sqrt((target.x - this.x)*(target.x - this.x)+(target.y - this.y)*(target.x - this.y)));
 
 	if(dist < 1000){
@@ -91,7 +91,7 @@ Boss.prototype.withinFollowingRange = function(target){
 	return false;
 }
 
-Boss.prototype.moveTowards = function(target){
+Boss_2.prototype.moveTowards = function(target){
 
 	var x = target.x - this.x;
 	var y = target.y - this.y;
@@ -112,13 +112,13 @@ Boss.prototype.moveTowards = function(target){
 	}
 }
 
-Boss.prototype.attack = function(target){
+Boss_2.prototype.attack = function(target){
 
 	if(Date.now() < this.attackTimer){
 		return;
 	}
 
-	this.game.boss_shoot.play();
+	this.game.boss_2_shoot.play();
 
 	var x = target.x - this.x;
 	var y = target.y - this.y;
@@ -129,7 +129,7 @@ Boss.prototype.attack = function(target){
 	this.attackTimer = Date.now() +  1 * 200;
 }
 
-Boss.prototype._damage = function(amount, attacker){
+Boss_2.prototype._damage = function(amount, attacker){
 
 	this.target = attacker;
 
@@ -145,7 +145,7 @@ Boss.prototype._damage = function(amount, attacker){
 	}
 }
 
-Boss.prototype.updateHealthBar = function(){
+Boss_2.prototype.updateHealthBar = function(){
 
 	var hitDelay = new Date() - this.lastHit; // ms
 	if (hitDelay > this.maxDelay) {
@@ -165,17 +165,17 @@ Boss.prototype.updateHealthBar = function(){
 	this.healthBar.frame = 10 - (p * 10);
 }
 
-Boss.prototype.die = function(points){
+Boss_2.prototype.die = function(points){
 
 	if(this.game){
-		this.game.baddie_boss_die_sfx.play();
+		this.game.baddie_Boss_2_die_sfx.play();
 	}
 
 	var points = points || false;
 	
-    // Crank up the emitter particles when boss dies!!!!!!!
+    // Crank up the emitter particles when Boss_2 dies!!!!!!!
 	var e = game.add.emitter(this.x, this.y, 200);
-	e.makeParticles('boss_die', [0,1,2,3,4]);
+	e.makeParticles('Boss_die', [0,1,2,3,4]);
 	// 	e.gravity = 0;
 	e.minRotation = 0;
 	e.maxRotation = 45;
@@ -187,13 +187,13 @@ Boss.prototype.die = function(points){
 	}
 
 	if(points){
-		InventoryManager.points += MainGame.points.kill_boss;
+		InventoryManager.points += MainGame.points.kill_Boss_2;
 	}
 	
 	// Kill off all the other baddies too, it forces end of the game!
 	for( var i = 0; i < CollisionManager.groups.baddies.length; i++){
 		var baddie = CollisionManager.groups.baddies[i];
-		if(baddie.name != "boss") {
+		if(baddie.name != "Boss_2") {
 			baddie.die();
 		}
 	}	

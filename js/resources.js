@@ -79,6 +79,9 @@ MainGame.resources.LoaderState = {
 		, {name: 'boss', path: assetsFolder + '/spritesheets/boss.png', width: 44, height: 44}
 		, {name: 'boss_die', path: assetsFolder + '/spritesheets/boss_die.png', width: 4, height: 4}
 
+		, {name: 'boss_2', path: assetsFolder + '/spritesheets/boss.png', width: 44, height: 44}
+		, {name: 'boss_2_die', path: assetsFolder + '/spritesheets/boss_die.png', width: 4, height: 4}
+
 		, {name: 'turret_small', path: assetsFolder + '/spritesheets/turret_small.png', width: 32, height: 32}
 		, {name: 'turret_big', path: assetsFolder + '/spritesheets/turret_big.png', width: 64, height: 64}
 		, {name: 'turret_progress', path: assetsFolder + '/spritesheets/turret_progress.png', width: 9, height: 9}
@@ -100,8 +103,10 @@ MainGame.resources.LoaderState = {
 		, {name: 'player_shoot', path: assetsFolder + '/audio/player_shoot.wav'}
 		, {name: 'baddie_shoot', path: assetsFolder + '/audio/baddie_shoot.wav'}
 		, {name: 'boss_shoot', path: assetsFolder + '/audio/boss_shoot.wav'}
+		, {name: 'boss_2_shoot', path: assetsFolder + '/audio/boss_shoot.wav'}
 		, {name: 'baddie_die_sfx', path: assetsFolder + '/audio/baddie_die_sfx.wav'}
 		, {name: 'baddie_boss_die_sfx', path: assetsFolder + '/audio/baddie_boss_die.wav'}
+		, {name: 'baddie_boss_2_die_sfx', path: assetsFolder + '/audio/baddie_boss_die.wav'}
 		, {name: 'player_hurt_sfx', path: assetsFolder + '/audio/player_hurt.wav'}
 		, {name: 'victory_sfx', path: assetsFolder + '/audio/victory.wav'}
 		/*, {name: 'menu_music', path: assetsFolder + '/audio/spiff_tune_to_the_moon.mp3'}*/

@@ -103,6 +103,7 @@ MainGame.resources.LoaderState = {
 		, {name: 'baddie_die_sfx', path: assetsFolder + '/audio/baddie_die_sfx.wav'}
 		, {name: 'baddie_boss_die_sfx', path: assetsFolder + '/audio/baddie_boss_die.wav'}
 		, {name: 'player_hurt_sfx', path: assetsFolder + '/audio/player_hurt.wav'}
+		, {name: 'victory_sfx', path: assetsFolder + '/audio/victory.wav'}
 		/*, {name: 'menu_music', path: assetsFolder + '/audio/spiff_tune_to_the_moon.mp3'}*/
 		, {name: 'game_music', path: assetsFolder + ( MainGame.addictingMode ? '/audio/run_music.mp3' : '/audio/spiff_tune_to_the_moon.mp3')}
 	]

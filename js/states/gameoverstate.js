@@ -41,6 +41,8 @@ MainGame.GameOverState.prototype = {
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
 
+					
+
 			if (MainGame.addictingMode === 1) {
 
 				// One-line, "let me play Level2".

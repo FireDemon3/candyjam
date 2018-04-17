@@ -71,6 +71,9 @@ WaveManager.prototype.update = function(){
 			if(wave.boss > 0)
 				baddies.push('boss');
 
+			if(wave.boss_2 > 0)
+				baddies.push('boss_2');	
+				
 			if( baddies.length == 0 && CollisionManager.groups.baddies.length == 0){
 
 				if(this.pauseTime == 0){
@@ -124,15 +127,25 @@ WaveManager.prototype.update = function(){
 						if (this.waves[this.currentWave].corn == 0 
 								&& this.waves[this.currentWave].cane == 0 
 								&& this.waves[this.currentWave].bear == 0) {
-							var b = new Boss(this.game, this.getSpawn());
-							this.waves[this.currentWave].boss--;	
+									var b = new Boss(this.game, this.getSpawn());
+									this.waves[this.currentWave].boss--;	
+								}
+							break;
+					case 'boss_2':
+						// Only spawn the Boss_2 if everything else has been spawned already!
+						if (this.waves[this.currentWave].corn == 0 
+								&& this.waves[this.currentWave].cane == 0 
+								&& this.waves[this.currentWave].bear == 0) {
+									var b = new Boss_2(this.game, this.getSpawn());
+									this.waves[this.currentWave].boss_2--;	
 						}
 						break;
+					}
 				}
 			}
 		}
 	}
-}
+//}
 
 WaveManager.prototype.getSpawn = function(){
 	

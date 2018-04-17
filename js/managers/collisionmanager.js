@@ -86,6 +86,10 @@ CollisionManager.prototype.update = function(){
 					player._damage(100);
 					//baddie.die();
 				}
+				else if(baddie.name=="boss_2"){
+					player._damage(100);
+					//baddie.die();
+				}
 			});
 		}
 	}

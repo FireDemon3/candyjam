@@ -37,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $player = $_POST['player'];
     $playerUq = $_POST['player_uq'];
-    $duration = $_POST['duration'];
-    $score = $_POST['score'];
+    $duration = (int)$_POST['duration'];
+    $score = (int)$_POST['score'];
     $win = $_POST['win'];
     
     if ($player) {

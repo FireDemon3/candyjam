@@ -168,14 +168,14 @@ Boss_2.prototype.updateHealthBar = function(){
 Boss_2.prototype.die = function(points){
 
 	if(this.game){
-		this.game.baddie_Boss_2_die_sfx.play();
+		this.game.baddie_boss_2_die_sfx.play();
 	}
 
 	var points = points || false;
 	
     // Crank up the emitter particles when Boss_2 dies!!!!!!!
 	var e = game.add.emitter(this.x, this.y, 200);
-	e.makeParticles('Boss_die', [0,1,2,3,4]);
+	e.makeParticles('boss_die', [0,1,2,3,4]);
 	// 	e.gravity = 0;
 	e.minRotation = 0;
 	e.maxRotation = 45;
@@ -193,7 +193,7 @@ Boss_2.prototype.die = function(points){
 	// Kill off all the other baddies too, it forces end of the game!
 	for( var i = 0; i < CollisionManager.groups.baddies.length; i++){
 		var baddie = CollisionManager.groups.baddies[i];
-		if(baddie.name != "Boss_2") {
+		if(baddie.name != "boss_2") {
 			baddie.die();
 		}
 	}	

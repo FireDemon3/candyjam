@@ -79,7 +79,7 @@ MainGame.resources.LoaderState = {
 		, {name: 'boss', path: assetsFolder + '/spritesheets/boss.png', width: 44, height: 44}
 		, {name: 'boss_die', path: assetsFolder + '/spritesheets/boss_die.png', width: 4, height: 4}
 
-		, {name: 'boss_2', path: assetsFolder + '/spritesheets/boss.png', width: 44, height: 44}
+		, {name: 'boss_2', path: assetsFolder + '/spritesheets/boss_2.png', width: 44, height: 44}
 		, {name: 'boss_2_die', path: assetsFolder + '/spritesheets/boss_die.png', width: 4, height: 4}
 
 		, {name: 'turret_small', path: assetsFolder + '/spritesheets/turret_small.png', width: 32, height: 32}

@@ -2,7 +2,7 @@
 function Boss_2(game, spawn){
 	
 	this.game = game;
-	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'Boss_2');
+	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss_2');
 
 	this.anchor.setTo(0.5, 0.5);
 	this.health = 60; // 600;

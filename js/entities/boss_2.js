@@ -7,14 +7,14 @@ function Boss_2(game, spawn){
 	this.anchor.setTo(0.5, 0.5);
 	this.health = 60; // 600;
 	this.maxHealth = 600;
-	this.speed = 90;
+	this.speed = 50;
 	this.healthBarOffset = 60;
 	
 	this.lastHit = new Date();
 	this.maxDelay = 2000; // milliseconds
 
-	this.animations.add('left', [0,1,2,3], 10, true);
-	this.animations.add('right', [4,5,6,7], 10, true);
+	this.animations.add('left', [0,1,2,3], 7, true);
+	this.animations.add('right', [4,5,6,7], 7, true);
 
 	this.animations.play('right');
 	this.healthBar = this.game.add.sprite(this.x, this.y + this.healthBarOffset, 'turret_health_bar');

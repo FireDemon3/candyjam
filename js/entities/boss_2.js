@@ -8,17 +8,16 @@ function Boss_2(game, spawn){
 	this.health = 60; // 600;
 	this.maxHealth = 600;
 	this.speed = 90;
+	this.healthBarOffset = 60;
 	
 	this.lastHit = new Date();
 	this.maxDelay = 2000; // milliseconds
 
-	//console.log('hay!');
-	this.animations.add('left', [0,1,2,3], 5, true);
-	this.animations.add('right', [4,5,6,7], 5, true);
+	this.animations.add('left', [0,1,2,3], 10, true);
+	this.animations.add('right', [4,5,6,7], 10, true);
 
 	this.animations.play('right');
-
-	this.healthBar = this.game.add.sprite(this.x, this.y + 40, 'turret_health_bar');
+	this.healthBar = this.game.add.sprite(this.x, this.y + this.healthBarOffset, 'turret_health_bar');
 	this.healthBar.anchor.setTo(0.5, 0.5);
 
 	this.STATES = {
@@ -158,7 +157,7 @@ Boss_2.prototype.updateHealthBar = function(){
 	}
 
 	this.healthBar.x = this.x;
-	this.healthBar.y = this.y + 40;
+	this.healthBar.y = this.y + this.healthBarOffset;
 
 	var p = (this.health / this.maxHealth);
 	p = parseFloat(p.toFixed(1));

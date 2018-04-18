@@ -67,7 +67,7 @@ MainGame.MainMenuState.prototype = {
 		if(MainGame.addictingMode){
 			loadJSON('/stats/index.php?mode=addicting',
 				function(data) { 
-					this.game.add.text(100, 500,"Leaderboard", { font: "bold 25px monospace", fill: '#ffffff'});
+					this.leaderboard_title = this.game.add.text(100, 500,"Leaderboard", { font: "bold 25px monospace", fill: '#ffffff'});
 					for(var i = 0; i < 7; i++){
 						var scoreData = data[i];
 						if (scoreData) {

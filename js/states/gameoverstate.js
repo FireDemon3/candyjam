@@ -41,8 +41,10 @@ MainGame.GameOverState.prototype = {
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
 
-			this.game.menumusic.pause('',0,0.4,true);
-			this.game.victory_sfx.play();		
+			if (MainGame.addictingMode === 2) {
+				this.game.menumusic.pause('',0,0.4,true);
+				this.game.victory_sfx.play();		
+			}
 
 			if (MainGame.addictingMode === 1) {
 

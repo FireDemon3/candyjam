@@ -3,6 +3,24 @@ MainGame.MainMenuState = function(game){
 	
 };
 
+
+const fruit = ['Apple', 'Banana', 'Pear', 'Cherry', 'Pineapple', 'Orange', 'Peach'];
+const things = ['Hair', 'Head', 'Hands', 'Feet', 'Arms', 'Legs', 'Face', 'Heart'];
+
+/**
+ * Return a string built out of elements randomly selected 
+ * from passed in Arrays. Used to make up junk data.
+ */
+function randomish() {
+	const result = [];
+	Array.prototype.map.call(arguments, function(arr){
+		result.push(arr[Math.floor(Math.random() * arr.length)]);
+	});
+	return result.join(' ');
+}
+
+
+
 // Used to load high scores
 function loadJSON(path, success, error) {
     var xhr = new XMLHttpRequest();
@@ -44,25 +62,35 @@ MainGame.MainMenuState.prototype = {
 		this.game.add.existing(start_btn);
 		}
 
+		var welcomeBackText = this.game.add.text(380, 520, "", { font: "bold 25px monospace", fill: '#ffffff'});
+
 		var player = localStorage.getItem('player');
 		if (player) {
-			// show: Welcome back, Bob! [not you?]
-			var welcomeBackText = this.game.add.text(380, 520, "Welcome back " + player, { font: "bold 25px monospace", fill: '#ffffff'});
+			// show: Welcome back Bob! [not you?]
+			welcomeBackText.setText("Welcome back " + player);
 
-			var name_btn = new Phaser.Button(this.game, 1024/2, 580, 'name_btn', function(){
-				player = prompt("Welcome, \nPlease enter your name", player || '');
-				if (player) {
-					welcomeBackText.setText("Welcome back, " + player);
-					localStorage.setItem('player', player);
-				}
-			}, this, 1, 0, 0);
-			name_btn.anchor.setTo(0.5, 0.5);
-			this.game.add.existing(name_btn);
 		} else {
 			// prompt: Enter your name:
-			player = prompt("Welcome, \nPlease enter your name", player || '');
-			localStorage.setItem('player', player || 'No Name');
+			player = prompt("Welcome, \nPlease enter your name", '') || randomish(fruit, things);
+			player = player.substring(0, 20);
+			welcomeBackText.setText("Welcome " + player);
+			localStorage.setItem('player', player);			
 		}
+
+		var name_btn = new Phaser.Button(this.game, 1024/2, 580, 'name_btn', function(){
+			var result = prompt("Welcome, \nPlease enter your name", player || '').trim();
+			if (result) {
+				player = result; // name change!
+			} else {
+				player = player || randomish(fruit, things); // user failed to choose. My turn to give you a name!
+			}
+			player = player.substring(0, 20);
+			welcomeBackText.setText("Welcome " + player);
+			localStorage.setItem('player', player);
+		}, this, 1, 0, 0);
+		name_btn.anchor.setTo(0.5, 0.5);
+		this.game.add.existing(name_btn);
+
 
 		if(MainGame.addictingMode){
 			loadJSON('/stats/index.php?mode=addicting',

@@ -186,7 +186,7 @@ Boss_2.prototype.die = function(points){
 	}
 
 	if(points){
-		InventoryManager.points += MainGame.points.kill_Boss_2;
+		InventoryManager.points += MainGame.points.kill_boss_2;
 	}
 	
 	// Kill off all the other baddies too, it forces end of the game!

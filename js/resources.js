@@ -32,6 +32,7 @@ MainGame.resources.LoaderState = {
 	  	, {name: 'bullet', path: assetsFolder + '/images/bullet.png'}
 		, {name: 'bullet_pink', path: assetsFolder + '/images/bullet_pink.png'}
 		, {name: 'bullet_boss', path: assetsFolder + '/images/bullet_boss.png'}
+		, {name: 'bullet_boss2', path: assetsFolder + '/images/bullet_boss.png'}
 	  	, {name: 'tooth', path: assetsFolder + '/images/tooth.png'}
 
 	  	, {name: 'toolbar_slot_background', path: assetsFolder + '/images/toolbar_slot_background.png'}

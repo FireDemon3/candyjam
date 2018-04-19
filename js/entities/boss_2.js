@@ -124,7 +124,7 @@ Boss_2.prototype.attack = function(target){
 	var mag = Math.sqrt((x * x) + (y * y));
 	var nx = x / mag;
 	var ny = y / mag;
-	var b = new BulletBoss(this.game, {x:this.x, y: this.y}, 'enemy', {x: nx, y: ny}, this);
+	var b = new BulletBoss2(this.game, {x:this.x, y: this.y}, 'enemy', {x: nx, y: ny}, this);
 	this.attackTimer = Date.now() +  1 * 200;
 }
 

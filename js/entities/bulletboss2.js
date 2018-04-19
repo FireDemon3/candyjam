@@ -13,7 +13,7 @@ function BulletBoss2(game, spawn, type, dir, parent){
 	this.anchor.setTo(0.5, 0.5);
 	this._parent = parent;
 
-	this.speed = 800;
+	this.speed = 600;
 	this.life = 75;
 	this._type = type;
 

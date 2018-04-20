@@ -5,7 +5,7 @@ function Boss(game, spawn){
 	Phaser.Sprite.call(this, this.game, spawn.x, spawn.y, 'boss');
 
 	this.anchor.setTo(0.5, 0.5);
-	this.health = 60; // 600;
+	this.health = 600; // 600;
 	this.maxHealth = 600;
 	this.speed = 90;
 	

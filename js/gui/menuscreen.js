@@ -16,6 +16,7 @@ function MenuScreen(game){
 	this.waveTimeText = this.game.add.text(50, 220, "Time: 0", { font: "24px monospace", fill: '#ffffff'}, this);
 	//this.enemiesKillText = this.game.add.text(50, 245, "Enemies Killed: 0", { font: "24px monospace", fill: '#ffffff'}, this);
 	this.accuracyText = this.game.add.text(50, 270, "Accuracy: 0", { font: "24px monospace", fill: '#ffffff'}, this);
+	this.healthText = this.game.add.text(50, 320, "Health: 0", { font: "24px monospace", fill: '#ffffff'}, this);
 
 	if(MainGame.addictingMode){
 		this.pointsText = this.game.add.text(640, 80, "Points Available: " + this.availablePoints, { font: "22px monospace", fill: '#ffffff'}, this);
@@ -68,7 +69,7 @@ function MenuScreen(game){
 		this.f.anchor.setTo(0.5, 0.5);
 		this.f_title_text 	= this.game.add.text(645, 480, "First Aid", { font: "18px monospace", fill: '#ffffff'}, this);
 		this.f_extra_text 	= this.game.add.text(700, 510, "Heals the player", { font: "14px monospace", fill: '#ffffff'}, this);
-		this.f_extra_text2 	= this.game.add.text(700, 525, "for 50 HP", { font: "14px monospace", fill: '#ffffff'}, this);
+		this.f_extra_text2 	= this.game.add.text(700, 525, "by 25%", { font: "14px monospace", fill: '#ffffff'}, this);
 		this.f_cost_text 	= this.game.add.text(700, 550, "Cost: " + MainGame.points.firstaid, { font: "14px monospace", fill: '#ffffff'}, this);
 		this.f_btn = new Phaser.Button(this.game, 880, 520, 'buy_btn', this.buyFirstAid, this, 1, 0, 0);
 		this.add(this.f_btn);
@@ -97,6 +98,8 @@ MenuScreen.prototype.update = function(){
 		this.h_text.setText(InventoryManager.inventory[1].amount.toString());
 		this.pointsText.setText("Points Available: " + InventoryManager.points);
 	}
+	var pH = Math.floor(( this.game.player.health / this.game.player.maxHealth ) * 100);
+	this.healthText.setText("Health: " + pH  + "%");
 }
 
 MenuScreen.prototype.buyTurretSmall = function(){
@@ -136,8 +139,8 @@ MenuScreen.prototype.buyFirstAid = function(){
 	if(InventoryManager.points >= cost){
 		InventoryManager.points -= cost;
 		this.game.player.health += 50;
-		if(this.game.player.health > 200){
-			this.game.player.health = 200;
+		if(this.game.player.health > this.game.player.maxHealth){
+			this.game.player.health = this.game.player.maxHealth;
 		}
 	}
 }

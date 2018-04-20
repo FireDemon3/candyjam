@@ -13,9 +13,9 @@ MainGame.waves = [];
 			corn: 10
 			, boss: 0
 			, boss_2: 0
-			, cane: 2
+			, cane: 0
 			, bear: 0
-			, moment: 2 	//400 points
+			, moment: 3 	//400 points
 		});
 
 		MainGame.waves.push( {

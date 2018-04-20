@@ -81,6 +81,11 @@ MainGame.GameOverState.prototype = {
 			s.anchor.setTo(0.5, 0.5);
 			s.fixedToCamera = true;
 
+			if (MainGame.addictingMode) {
+				this.game.menumusic.pause('',0,0.4,true);
+				this.game.lose_sfx.play();		
+			}
+
 			// Losing games always push scores here, regardless the level.
 			this.submit_score(InventoryManager.points, this.win);
 		}

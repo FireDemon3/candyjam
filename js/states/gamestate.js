@@ -52,6 +52,8 @@ MainGame.GameState.prototype = {
 		this.game.player_hurt_sfx.volume = .4;
 		this.game.victory_sfx = this.game.add.audio('victory_sfx');
 		this.game.victory_sfx.volume = .25;
+		this.game.lose_sfx = this.game.add.audio('lose_sfx');
+		this.game.lose_sfx.volume = .25;
 
 		// All versions of the game get a gun.
 		InventoryManager.addToInventory('gun', 1);

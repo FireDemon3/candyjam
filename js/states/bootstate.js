@@ -24,9 +24,10 @@ if (window.location.href.indexOf('blue') > -1 || window.location.href.indexOf('g
 	// TODO: turn this OFF!!
 	var isLucasTesting = false;
 	
-	if (isLucasTesting || (hashArray.length === 3 && playerUq === hashArray[0] && hashArray[1] > new Date().getTime())) {
+	if (isLucasTesting || (hashArray.length === 4 && playerUq === hashArray[0] && hashArray[1] > new Date().getTime())) {
 		MainGame.addictingMode = 2;
 		MainGame.startingPoints = parseInt(hashArray[2]) || 0;
+		MainGame.startingDuration = parseInt(hashArray[3]) || 0;
 	} else {
 		// failed validation, remove it and fallback to Level 1.
 		MainGame.addictingMode = 1;

@@ -45,22 +45,28 @@ MainGame.MainMenuState.prototype = {
 	
 	create: function(){
 
+		// Offset is used when playing the second round Addicting game.
+		var startDateOffset = (MainGame.startingDuration || 0) * 1000;
+		// console.log({startDateOffset});
+
 		this.add.sprite(0, 0, 'mainmenu_bg');
+		var pos = {
+			x: 512,
+			y: 650
+		};
 		if (MainGame.addictingMode === 2) {
-			var start_btn = new Phaser.Button(this.game, 750, 600, 'start_btn', function(){
-				MainGame._startDate = new Date();
-				this.game.state.start('Game');
-			}, this, 1, 0, 0);
-			start_btn.anchor.setTo(0.5, 0.5);
-			this.game.add.existing(start_btn);
-		} else {
-			var start_btn = new Phaser.Button(this.game, 1024/2, 650, 'start_btn', function(){
-			MainGame._startDate = new Date();
+			// Button is moved for addictingMode '2' only!
+			pos = {
+				x: 750,
+				y: 600
+			};
+		}
+		var start_btn = new Phaser.Button(this.game, pos.x, pos.y, 'start_btn', function(){
+			MainGame._startDate = new Date(Date.now() - startDateOffset);
 			this.game.state.start('Game');
 		}, this, 1, 0, 0);
 		start_btn.anchor.setTo(0.5, 0.5);
 		this.game.add.existing(start_btn);
-		}
 
 		var welcomeBackText = this.game.add.text(380, 520, "", { font: "bold 25px monospace", fill: '#ffffff'});
 

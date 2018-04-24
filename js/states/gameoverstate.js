@@ -7,7 +7,7 @@ MainGame.GameOverState = function(game){
 MainGame.GameOverState.prototype = {
 
 
-	submit_score: function(score, isWin) {
+	submit_score: function(score, isWin, durationSeconds) {
 
 		var uq = localStorage.getItem('uq');
 		var player = localStorage.getItem('player');
@@ -16,8 +16,8 @@ MainGame.GameOverState.prototype = {
 		fd.append("player", player || "No Name");
 		fd.append("player_uq", uq || "nil");
 		fd.append("score", score || "0");
-		fd.append("win", isWin || false);
-		fd.append("duration", Math.round((new Date() - MainGame._startDate)/1000)); // game duration in seconds
+		fd.append("win", isWin || "false");
+		fd.append("duration", durationSeconds || "0"); // game duration in seconds
 
 		// Don't include 'mode' parameter for regular game mode!
 		if (MainGame.addictingMode === 1) {
@@ -35,6 +35,7 @@ MainGame.GameOverState.prototype = {
 	create: function(){
 
 		var addReplaySwitch = true;
+		var durationSeconds = Math.round((new Date() - MainGame._startDate)/1000);
 
 		if(this.win){
 			var s = this.add.sprite(1024/2, 768/2, 'youwin');
@@ -60,7 +61,7 @@ MainGame.GameOverState.prototype = {
 					var playerUq = localStorage.getItem('uq');
 					var hashLifetime = 1 * (60 * 60 * 1000); // One Hour
 					var hashExpires = new Date().getTime() + hashLifetime;
-					var hash = window.btoa(playerUq + '::' + hashExpires + '::' + InventoryManager.points);
+					var hash = window.btoa(playerUq + '::' + hashExpires + '::' + InventoryManager.points + '::' + durationSeconds);
 					localStorage.setItem('level_1_hash', hash);
 
 					window.location.href = '/blue.php';
@@ -73,7 +74,7 @@ MainGame.GameOverState.prototype = {
 				addReplaySwitch = false;
 			} else {
 				// Regular mode and Addicting mode Level 2 both submit winning scores here.
-				this.submit_score(InventoryManager.points, this.win);
+				this.submit_score(InventoryManager.points, this.win, durationSeconds);
 			}
 
 		} else {
@@ -87,7 +88,7 @@ MainGame.GameOverState.prototype = {
 			}
 
 			// Losing games always push scores here, regardless the level.
-			this.submit_score(InventoryManager.points, this.win);
+			this.submit_score(InventoryManager.points, this.win, durationSeconds);
 		}
 		
 		if (addReplaySwitch) {		
